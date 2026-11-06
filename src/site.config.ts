@@ -10,7 +10,9 @@ export const site = {
   location: 'Toronto',
 
   // Contact
-  email: 'roipborges@gmail.com',
+  // Email is split so the full address never appears in the page code (keeps spam bots out).
+  emailUser: 'roipborges',
+  emailDomain: 'gmail.com',
   calendar: 'https://calendar.app.google/e2aZ27q2ExZQdxpJ6',
   linkedin: 'https://www.linkedin.com/in/rodrigoborgess/',
   cv: '', // e.g. '/rodrigo-borges-cv.pdf' (put the file in /public)

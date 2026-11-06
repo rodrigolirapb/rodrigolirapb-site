@@ -9,7 +9,13 @@ import { site } from '../site.config';
     <p><a class="button" href={site.calendar}>Book a call</a></p>
 
     <dl class="channels">
-      {site.email && <div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>}
+      {site.emailUser && site.emailDomain && (
+        <div><dt>Email</dt><dd>
+          <a class="email" href="#" data-u={[...site.emailUser].reverse().join('')} data-d={[...site.emailDomain].reverse().join('')}>
+            {site.emailUser} at {site.emailDomain.replace(/\./g, ' dot ')}
+          </a>
+        </dd></div>
+      )}
       {site.linkedin && <div><dt>LinkedIn</dt><dd><a href={site.linkedin}>Connect on LinkedIn</a></dd></div>}
       {site.cv && <div><dt>CV</dt><dd><a href={site.cv} download>Download my CV (PDF)</a></dd></div>}
       <div><dt>Newsletter</dt><dd><a href={site.substack}>Subscribe to AI Management</a></dd></div>
@@ -17,6 +23,14 @@ import { site } from '../site.config';
     </dl>
   </section>
 </Base>
+
+<script>
+  // Builds the mailto link only in the visitor's browser, so the address is never in the HTML.
+  document.querySelectorAll<HTMLAnchorElement>('a.email').forEach((a) => {
+    const rev = (s = '') => [...s].reverse().join('');
+    a.href = 'mailto:' + rev(a.dataset.u) + String.fromCharCode(64) + rev(a.dataset.d);
+  });
+</script>
 
 <style>
   .contact { max-width: 760px; }
