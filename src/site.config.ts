@@ -10,9 +10,9 @@ export const site = {
   location: 'Toronto',
 
   // Contact
-  email: '', // e.g. 'hello@rodrigolpborges.com'
+  email: '', // e.g. 'roipborges@gmail.com'
   calendar: 'https://calendar.app.google/e2aZ27q2ExZQdxpJ6',
-  linkedin: '', // e.g. 'https://www.linkedin.com/in/your-handle'
+  linkedin: '', // e.g. 'https://www.linkedin.com/in/rodrigoborgess/'
   cv: '', // e.g. '/rodrigo-borges-cv.pdf' (put the file in /public)
 
   // Writing: Substack "AI Management"
@@ -20,7 +20,7 @@ export const site = {
   substackFeed: 'https://aimgmt.substack.com/feed',
 
   // Reading: Goodreads. Find your numeric user ID in your profile URL:
-  // goodreads.com/user/show/<ID>-your-name
+  // goodreads.com/user/show/928704-rodrigo
   goodreadsUserId: '',
   goodreadsShelf: 'currently-reading',
 
