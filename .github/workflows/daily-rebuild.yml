@@ -1,0 +1,20 @@
+# Rebuilds the site every day so new Substack posts and Goodreads books appear on Home.
+# Setup: in Vercel, Project Settings > Git > Deploy Hooks, create a hook for the main branch.
+# Then in GitHub, Settings > Secrets and variables > Actions, add it as VERCEL_DEPLOY_HOOK.
+name: Daily rebuild
+
+on:
+  schedule:
+    - cron: '17 10 * * *' # 10:17 UTC, early morning in Toronto
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "VERCEL_DEPLOY_HOOK secret is not set"; exit 1; fi
+          curl -fsS -X POST "$HOOK"

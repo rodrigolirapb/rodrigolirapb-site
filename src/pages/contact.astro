@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+---
+<Base title="Contact" description="Book a call or get in touch.">
+  <section class="section wrap contact">
+    <h1>Let's talk about your accounts</h1>
+    <p class="lede">The fastest way is a short call. Pick a time that suits you.</p>
+    <p><a class="button" href={site.calendar}>Book a call</a></p>
+
+    <dl class="channels">
+      {site.email && <div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>}
+      {site.linkedin && <div><dt>LinkedIn</dt><dd><a href={site.linkedin}>Connect on LinkedIn</a></dd></div>}
+      {site.cv && <div><dt>CV</dt><dd><a href={site.cv} download>Download my CV (PDF)</a></dd></div>}
+      <div><dt>Newsletter</dt><dd><a href={site.substack}>Subscribe to AI Management</a></dd></div>
+      <div><dt>Based in</dt><dd>{site.location}</dd></div>
+    </dl>
+  </section>
+</Base>
+
+<style>
+  .contact { max-width: 760px; }
+  .channels { margin: 3rem 0 0; }
+  .channels div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding-block: 0.9rem; border-top: 1px solid var(--rule); }
+  dt { color: var(--muted); font-size: var(--step--1); padding-top: 0.15em; }
+  dd { margin: 0; }
+</style>

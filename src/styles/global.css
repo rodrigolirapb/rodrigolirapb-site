@@ -1,0 +1,132 @@
+@import '@fontsource-variable/newsreader';
+@import '@fontsource-variable/schibsted-grotesk';
+
+:root {
+  /* Palette */
+  --paper: #f4f5f2;     /* cool page white */
+  --sheet: #ffffff;     /* the brief sheet */
+  --ink: #10211c;       /* deep green-black text */
+  --muted: #56635d;     /* secondary text */
+  --rule: #cfd6d0;      /* form lines */
+  --green: #1e4a3c;     /* links, buttons */
+  --marker: #e2ee55;    /* highlighter */
+
+  /* Type */
+  --serif: 'Newsreader Variable', Georgia, serif;
+  --sans: 'Schibsted Grotesk Variable', system-ui, sans-serif;
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3rem;
+  --step-2: 1.65rem;
+  --step-3: 2.15rem;
+  --step-4: clamp(2.5rem, 5.5vw, 4.25rem);
+
+  /* Layout */
+  --page: min(1180px, 100% - 2 * var(--gutter));
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --measure: 66ch;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  font-feature-settings: 'kern', 'liga';
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.5em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--step-4); font-weight: 450; }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-2); }
+
+p { margin: 0 0 1em; max-width: var(--measure); text-wrap: pretty; }
+
+a { color: var(--green); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; border-radius: 2px; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+.wrap { width: var(--page); margin-inline: auto; }
+.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.lede { font-family: var(--serif); font-size: var(--step-1); line-height: 1.45; color: var(--ink); }
+.quiet { color: var(--muted); }
+.small { font-size: var(--step--1); }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.8em 1.3em;
+  background: var(--green);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.button:hover { background: var(--ink); }
+.button.secondary { background: transparent; color: var(--green); box-shadow: inset 0 0 0 1.5px var(--green); }
+.button.secondary:hover { background: var(--green); color: #fff; }
+
+/* Highlighter: the site's signature mark. Sweeps in when it scrolls into view. */
+.mark {
+  background-image: linear-gradient(var(--marker), var(--marker));
+  background-repeat: no-repeat;
+  background-size: 100% 0.62em;
+  background-position: 0 88%;
+  padding-inline: 0.08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Image frame for photos and Midjourney art */
+.frame { overflow: hidden; border-radius: 6px; background: #dfe4df; }
+.frame img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .mark {
+      animation: mark-sweep linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 35%;
+    }
+    .parallax img {
+      scale: 1.15;
+      animation: drift linear both;
+      animation-timeline: view();
+    }
+  }
+}
+
+@keyframes mark-sweep {
+  from { background-size: 0% 0.62em; }
+  to { background-size: 100% 0.62em; }
+}
+@keyframes drift {
+  from { translate: 0 -6%; }
+  to { translate: 0 6%; }
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}

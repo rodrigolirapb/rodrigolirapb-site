@@ -1,0 +1,180 @@
+---
+import Base from '../layouts/Base.astro';
+import BriefCard from '../components/BriefCard.astro';
+import { site } from '../site.config';
+import { stories } from '../lib/stories';
+import { getPosts, getBooks } from '../lib/feeds';
+
+const posts = await getPosts(3);
+const books = await getBooks(3);
+const fmt = new Intl.DateTimeFormat('en-CA', { month: 'short', day: 'numeric', year: 'numeric' });
+
+const proof = [
+  { value: 30, prefix: '+', suffix: '%', label: 'lead generation against a +10% target' },
+  { value: 3, prefix: '', suffix: '', label: 'markets grown from one first sale' },
+  { value: 20, prefix: '', suffix: '', label: 'people in the agency I ran' },
+  { value: 8, prefix: '', suffix: '', label: 'industries, from energy to non-profit' },
+];
+---
+<Base>
+  <section class="hero wrap">
+    <div class="sheet" aria-labelledby="hero-title">
+      <p class="sheet-head quiet small"><span>Brief</span><span>{site.location}</span></p>
+      <h1 id="hero-title">AI changed the rules of the game. I help clients win it.</h1>
+      <dl class="fields">
+        <div class="row"><dt>Who</dt><dd>Rodrigo Borges, account director. Agency leader, client-side marketer and founder.</dd></div>
+        <div class="row"><dt>The problem</dt><dd>Clients are asking their agencies what AI means for their business. Most answers stop at tools.</dd></div>
+        <div class="row"><dt>My answer</dt><dd>Business cases, roadmaps and accounts that grow, with AI doing the heavy lifting and people making the calls.</dd></div>
+        <div class="row"><dt>Next step</dt><dd class="actions">
+          <a class="button" href={site.calendar}>Book a call</a>
+          <a class="button secondary" href="/work/">See the work</a>
+        </dd></div>
+      </dl>
+    </div>
+    <div class="frame portrait">
+      <img src="/images/portrait.jpg" alt="Portrait of Rodrigo Borges" width="1200" height="1500" fetchpriority="high" />
+    </div>
+  </section>
+
+  <section class="proof wrap" aria-label="Track record">
+    <ul>
+      {proof.map((p) => (
+        <li>
+          <span class="num" data-count={p.value} data-prefix={p.prefix} data-suffix={p.suffix}>{p.prefix}{p.value}{p.suffix}</span>
+          <span class="label">{p.label}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  {posts.length > 0 && (
+    <section class="section wrap posts">
+      <div class="split-head">
+        <h2>Latest from AI Management</h2>
+        <a href={site.substack}>Subscribe on Substack</a>
+      </div>
+      <ol class="post-list">
+        {posts.map((post) => (
+          <li>
+            <a href={post.link}>
+              <span class="post-title">{post.title}</span>
+              <span class="quiet small">{fmt.format(post.date)}</span>
+            </a>
+            {post.summary && <p class="quiet">{post.summary}</p>}
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  <section class="section wrap">
+    <div class="split-head">
+      <h2>Selected work</h2>
+      <a href="/work/">All industry stories</a>
+    </div>
+    <div class="cards">
+      {stories.slice(0, 3).map((s) => <BriefCard story={s} />)}
+    </div>
+  </section>
+
+  {books.length > 0 && (
+    <section class="section wrap reading">
+      <h2>Currently reading</h2>
+      <ul class="books">
+        {books.map((b) => (
+          <li>
+            <a href={b.link}>
+              {b.cover && <img src={b.cover} alt="" width="120" height="180" loading="lazy" />}
+              <span class="book-title">{b.title}</span>
+              <span class="quiet small">{b.author}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section class="section wrap closing">
+    <h2>Have an account that needs an AI plan?</h2>
+    <p class="lede">Thirty minutes is enough to see whether I can help.</p>
+    <a class="button" href={site.calendar}>Book a call</a>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: stretch;
+    padding-top: clamp(1rem, 3vw, 2.5rem);
+  }
+  .sheet {
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+  }
+  .sheet-head { display: flex; justify-content: space-between; margin-bottom: 1.5rem; }
+  .sheet h1 { max-width: 16ch; margin-bottom: 1.75rem; }
+  .fields .row {
+    display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem;
+    padding-block: 0.95rem; border-top: 1px solid var(--rule);
+  }
+  .fields { margin: 0; }
+  dt { color: var(--muted); font-size: var(--step--1); padding-top: 0.2em; }
+  dd { margin: 0; max-width: 52ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .portrait { min-height: 420px; }
+
+  /* The one orchestrated moment: the brief fills in, row by row. */
+  @media (prefers-reduced-motion: no-preference) {
+    .sheet h1, .fields .row { animation: fill 0.7s cubic-bezier(.2,.7,.2,1) both; }
+    .sheet h1 { animation-delay: 0.05s; }
+    .fields .row:nth-child(1) { animation-delay: 0.35s; }
+    .fields .row:nth-child(2) { animation-delay: 0.55s; }
+    .fields .row:nth-child(3) { animation-delay: 0.75s; }
+    .fields .row:nth-child(4) { animation-delay: 0.95s; }
+  }
+  @keyframes fill { from { opacity: 0; translate: 0 0.6rem; } }
+
+  .proof ul {
+    list-style: none; margin: clamp(2.5rem, 6vw, 4rem) 0 0; padding: 0;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+  }
+  .proof li { display: grid; align-content: start; gap: 0.35rem; padding-top: 1rem; border-top: 2px solid var(--ink); }
+  .num { font-family: var(--serif); font-size: var(--step-4); line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
+  .label { color: var(--muted); max-width: 22ch; }
+
+  .split-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+  .split-head h2 { margin: 0; }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+  .post-list { list-style: none; margin: 0; padding: 0; }
+  .post-list li { border-top: 1px solid var(--rule); padding-block: 1.1rem; }
+  .post-list a { display: flex; justify-content: space-between; gap: 1rem; text-decoration: none; color: var(--ink); }
+  .post-title { font-family: var(--serif); font-size: var(--step-1); }
+  .post-list a:hover .post-title { text-decoration: underline; }
+  .post-list p { margin: 0.35rem 0 0; }
+
+  .books { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .books a { display: grid; gap: 0.35rem; width: 150px; text-decoration: none; color: var(--ink); }
+  .books img { border-radius: 4px; width: 120px; height: auto; }
+  .book-title { font-family: var(--serif); }
+
+  .closing { text-align: left; }
+  .closing h2 { max-width: 20ch; }
+
+  @media (max-width: 960px) {
+    .cards { grid-template-columns: 1fr; max-width: 640px; }
+    .proof ul { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; }
+    .portrait { min-height: 0; aspect-ratio: 4 / 5; max-width: 420px; }
+  }
+  @media (max-width: 520px) {
+    .fields .row { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+</style>

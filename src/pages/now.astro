@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+
+// Update this page once a month. Change the date and the three lists.
+const updated = 'November 2026';
+const building = [
+  'This site, built with Claude Code and deployed on Vercel.',
+  'AI Management, a weekly newsletter on what AI means for brands and their agencies.',
+];
+const learning = [
+  'Generative and agentic AI for business, using the Rotman program outline as the spine for my writing.',
+  'French, one lesson at a time.',
+];
+const lookingFor = [
+  'Account director and account leadership roles at Toronto agencies.',
+  'Contract and interim work is welcome.',
+];
+---
+<Base title="Now" description="What I am building, learning and looking for this month.">
+  <section class="section wrap now">
+    <h1>Now</h1>
+    <p class="quiet">Updated {updated}</p>
+
+    <h2>Building</h2>
+    <ul>{building.map((i) => <li>{i}</li>)}</ul>
+
+    <h2>Learning</h2>
+    <ul>{learning.map((i) => <li>{i}</li>)}</ul>
+
+    <h2>Looking for</h2>
+    <ul>{lookingFor.map((i) => <li>{i}</li>)}</ul>
+
+    <p><a class="button" href={site.calendar}>Book a call</a></p>
+  </section>
+</Base>
+
+<style>
+  .now { max-width: 760px; }
+  h2 { font-size: var(--step-2); margin-top: 2.5rem; }
+  ul { padding-left: 1.2em; margin: 0 0 1rem; max-width: var(--measure); }
+  li { margin-bottom: 0.5rem; }
+  li::marker { color: var(--green); }
+</style>

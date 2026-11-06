@@ -1,0 +1,113 @@
+---
+import '../styles/global.css';
+import { site, nav } from '../site.config';
+
+interface Props { title?: string; description?: string }
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} | ${site.name}` : site.title;
+const path = Astro.url.pathname;
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={new URL(path, Astro.site)} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/images/og.jpg', Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="alternate" type="application/rss+xml" title="AI Management" href={site.substackFeed} />
+  </head>
+  <body>
+    <a class="visually-hidden skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="/">{site.name}</a>
+      <nav aria-label="Main">
+        <ul>
+          {nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={(item.href === '/' ? path === '/' : path.startsWith(item.href)) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <p class="footer-name">{site.name}</p>
+          <p class="quiet small">Account director for the AI era. {site.location}.</p>
+        </div>
+        <ul class="footer-links">
+          {site.linkedin && <li><a href={site.linkedin}>LinkedIn</a></li>}
+          <li><a href={site.substack}>AI Management on Substack</a></li>
+          {site.goodreadsUserId && <li><a href={`https://www.goodreads.com/user/show/${site.goodreadsUserId}`}>Goodreads</a></li>}
+          <li><a href={site.cronicas}>Crônicas, my personal writing</a></li>
+        </ul>
+        <p class="quiet small copyright">© {year} {site.name}</p>
+      </div>
+    </footer>
+
+    <script>
+      // Count-up for proof numbers, once, when they scroll into view.
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const els = document.querySelectorAll<HTMLElement>('[data-count]');
+      if (!reduce && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            const el = e.target as HTMLElement;
+            io.unobserve(el);
+            const end = Number(el.dataset.count);
+            const prefix = el.dataset.prefix ?? '';
+            const suffix = el.dataset.suffix ?? '';
+            const t0 = performance.now();
+            const dur = 1100;
+            const tick = (t: number) => {
+              const p = Math.min(1, (t - t0) / dur);
+              const eased = 1 - Math.pow(1 - p, 3);
+              el.textContent = prefix + Math.round(end * eased) + suffix;
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        }, { threshold: 0.6 });
+        els.forEach((el) => io.observe(el));
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  .skip:focus { position: fixed; top: 1rem; left: 1rem; width: auto; height: auto; clip: auto; background: var(--sheet); padding: 0.5rem 1rem; z-index: 10; }
+  .site-header {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+    padding-block: 1.5rem;
+  }
+  .brand { font-family: var(--serif); font-size: var(--step-1); font-weight: 500; color: var(--ink); text-decoration: none; }
+  nav ul { list-style: none; display: flex; gap: clamp(0.9rem, 2.5vw, 1.8rem); margin: 0; padding: 0; flex-wrap: wrap; }
+  nav a { color: var(--ink); text-decoration: none; font-weight: 500; padding-block: 0.25em; }
+  nav a[aria-current='page'] {
+    background-image: linear-gradient(var(--marker), var(--marker));
+    background-size: 100% 0.5em; background-repeat: no-repeat; background-position: 0 85%;
+  }
+  nav a:hover { text-decoration: underline; }
+  .site-footer { border-top: 1px solid var(--rule); padding-block: 2.5rem 3rem; margin-top: 2rem; }
+  .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem 3rem; align-items: start; }
+  .footer-name { font-family: var(--serif); font-size: var(--step-1); margin-bottom: 0.2em; }
+  .footer-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+  .copyright { grid-column: 1 / -1; margin: 0; }
+  @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>

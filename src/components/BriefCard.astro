@@ -1,0 +1,55 @@
+---
+// A story rendered as a one-page agency brief.
+import type { Story } from '../lib/stories';
+interface Props { story: Story; full?: boolean }
+// full: Work page (all fields). Otherwise a compact card for Home.
+const { story, full = false } = Astro.props;
+const { Content } = story;
+---
+<article class="brief-card" data-industry={story.industry} id={story.slug}>
+  {story.image && (
+    <div class="frame parallax card-image">
+      <img src={story.image} alt="" loading="lazy" width="1600" height="1000" />
+    </div>
+  )}
+  <div class="card-body">
+    <p class="industry">{story.industry}</p>
+    <h3>{story.title}</h3>
+    <dl class:list={["fields", { compact: !full }]}>
+      <div><dt>Client</dt><dd>{story.client}</dd></div>
+      {full && <div><dt>Problem</dt><dd>{story.problem}</dd></div>}
+      {full && <div><dt>Moves</dt><dd>{story.moves}</dd></div>}
+      <div><dt>Result</dt><dd><span class="mark">{story.result}</span></dd></div>
+      {full && <div><dt>Where AI fits today</dt><dd>{story.ai}</dd></div>}
+    </dl>
+    {full ? <div class="story-more"><Content /></div> : <a class="more" href={`/work/#${story.slug}`}>Read the brief</a>}
+  </div>
+</article>
+
+<style>
+  .brief-card {
+    background: var(--sheet);
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    display: grid;
+    align-content: start;
+  }
+  .card-image { aspect-ratio: 16 / 9; border-radius: 0; }
+  .card-body { padding: clamp(1.25rem, 3vw, 2rem); }
+  .industry { color: var(--muted); font-size: var(--step--1); font-weight: 600; margin-bottom: 0.4rem; }
+  h3 { font-size: var(--step-2); }
+  .fields { margin: 1.25rem 0 0; }
+  .fields div {
+    display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem;
+    padding-block: 0.85rem; border-top: 1px solid var(--rule);
+  }
+  .fields.compact div { grid-template-columns: 1fr; gap: 0.2rem; }
+  .more { display: inline-block; margin-top: 1rem; font-weight: 500; }
+  dt { font-size: var(--step--1); color: var(--muted); padding-top: 0.15em; }
+  dd { margin: 0; }
+  .story-more :global(p:first-child) { margin-top: 1.25rem; }
+  @media (max-width: 560px) {
+    .fields div { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import BriefCard from '../components/BriefCard.astro';
+import { stories, industries } from '../lib/stories';
+---
+<Base title="Work" description="Industry stories written as one-page agency briefs.">
+  <section class="section wrap intro">
+    <h1>Work</h1>
+    <p class="lede">Each story is written as a one-page brief: the client, the real problem, what I did and what changed. Client names stay private.</p>
+  </section>
+
+  <section class="wrap">
+    {industries.length > 1 && (
+      <div class="filters" role="group" aria-label="Filter by industry">
+        <button type="button" aria-pressed="true" data-filter="all">All</button>
+        {industries.map((i) => <button type="button" aria-pressed="false" data-filter={i}>{i}</button>)}
+      </div>
+    )}
+    <div class="list">
+      {stories.map((s) => <BriefCard story={s} full />)}
+    </div>
+  </section>
+</Base>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('.brief-card');
+  buttons.forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filter;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      cards.forEach((c) => (c.hidden = f !== 'all' && c.dataset.industry !== f));
+    }),
+  );
+</script>
+
+<style>
+  .intro { padding-bottom: 2rem; }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem; }
+  .filters button {
+    font: inherit; font-weight: 500; cursor: pointer;
+    padding: 0.45em 1em; border-radius: 999px;
+    border: 1.5px solid var(--rule); background: transparent; color: var(--ink);
+  }
+  .filters button[aria-pressed='true'] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .list { display: grid; gap: 2rem; max-width: 860px; padding-bottom: 4rem; }
+  .list :global(.brief-card) { grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 900px) {
+    .list { max-width: none; }
+    .list :global(.brief-card) { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); }
+    .list :global(.card-image) { aspect-ratio: auto; height: 100%; }
+  }
+</style>

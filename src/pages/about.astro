@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+
+// Career stages, in order. Edit freely; add a `when` once you want dates shown.
+const stages = [
+  {
+    when: '2005',
+    title: 'Theatre, Brasília',
+    text: 'First job: marketing intern at a children\'s theatre while studying Communication at the University of Brasília. Culture never left my work.',
+    key: 'Where I learned that every audience has to be earned.',
+  },
+  {
+    when: '',
+    title: 'Copywriter',
+    text: 'Writing for brands taught me the brief is the product. A fuzzy brief makes fuzzy work, no matter who executes it.',
+    key: 'Words first, always.',
+  },
+  {
+    when: '',
+    title: 'Running the agency',
+    text: 'Led the whole 20-person team at Doisnovemeia, then a 10-person creative team at Plá. Clients, creative, delivery and the numbers.',
+    key: 'Twenty people, one standard for the work.',
+  },
+  {
+    when: '2019–2026',
+    title: 'The client side',
+    text: 'At Spin, a B2B industrial software company, I ran marketing, operations and global sales: budget, agencies, campaigns, trade shows and a land-and-expand sales motion across three markets.',
+    key: 'I know what clients think when the agency leaves the room.',
+  },
+  {
+    when: 'Now',
+    title: 'Founder, and AI every day',
+    text: 'Co-founder and CMO of Nrolled, a Toronto hospitality workforce platform. I build with AI daily, from content to code, and write about it in AI Management.',
+    key: 'AI does the heavy lifting. People make the calls.',
+  },
+];
+---
+<Base title="About" description="From copywriter to agency lead to client-side marketer to founder.">
+  <section class="section wrap intro">
+    <h1>About</h1>
+    <p class="lede">I have written the ads, run the agency, hired agencies as the client and sold complex deals. Now I help brands and agencies turn AI into growth, account by account.</p>
+  </section>
+
+  <section class="wrap story" aria-label="Career">
+    <div class="pin">
+      <div class="frame parallax pin-image">
+        <img src="/images/about-early.jpg" alt="Rodrigo Borges" width="1200" height="1500" loading="lazy" />
+      </div>
+    </div>
+    <ol class="stages">
+      {stages.map((s) => (
+        <li>
+          {s.when && <p class="when quiet small">{s.when}</p>}
+          <h2>{s.title}</h2>
+          <p>{s.text}</p>
+          <p class="key"><span class="mark">{s.key}</span></p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section wrap facts">
+    <div>
+      <h2>How I lead</h2>
+      <p>My teams know where they stand. I give feedback often, directly and with care, and people who reported to me say that is what they remember most.</p>
+      <p>On deals I use MEDDICC to judge account health, so forecasts are honest and effort goes where it can win.</p>
+    </div>
+    <dl class="meta">
+      <div><dt>Languages</dt><dd>English and Portuguese (bilingual), Spanish (intermediate), French (learning)</dd></div>
+      <div><dt>Certifications</dt><dd>EMBA, PMP, PMI-ACP, Scrum Product Owner</dd></div>
+      <div><dt>Industries</dt><dd>Retail, automotive, government, non-profit, financial services, tech, energy, hospitality</dd></div>
+      <div><dt>Based in</dt><dd>{site.location}</dd></div>
+    </dl>
+  </section>
+</Base>
+
+<style>
+  .intro { padding-bottom: 2rem; }
+  .story {
+    display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 6vw, 5rem); align-items: start;
+  }
+  .pin { position: sticky; top: 2rem; }
+  .pin-image { aspect-ratio: 4 / 5; }
+  .stages { list-style: none; margin: 0; padding: 0; }
+  .stages li { min-height: 45vh; padding-block: 2rem; border-top: 1px solid var(--rule); }
+  .stages li:last-child { min-height: 0; }
+  .when { margin-bottom: 0.4rem; font-variant-numeric: lining-nums; }
+  .key { font-family: var(--serif); font-size: var(--step-1); }
+
+  .facts { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 6vw, 5rem); }
+  .meta { margin: 0; }
+  .meta div { padding-block: 0.9rem; border-top: 1px solid var(--rule); }
+  .meta dt { color: var(--muted); font-size: var(--step--1); }
+  .meta dd { margin: 0.2rem 0 0; }
+
+  @media (max-width: 820px) {
+    .story, .facts { grid-template-columns: 1fr; }
+    .pin { position: static; max-width: 420px; }
+    .stages li { min-height: 0; }
+  }
+</style>
