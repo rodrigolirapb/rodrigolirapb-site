@@ -27,10 +27,10 @@ Personal site for Rodrigo Borges, account director for the AI era. Built with [A
 
 At build time the site reads:
 
-- **AI Management** (`aimgmt.substack.com/feed`): the 3 newest posts show on Home.
-- **Goodreads** (`currently-reading` shelf): set `goodreadsUserId` in `src/site.config.ts`. Your profile must be public.
+- **AI Management** (`aimgmt.substack.com/feed`): the 3 newest posts show on Home, each with an excerpt from the post's first paragraph, a thumbnail pulled from the post itself (if it has one), and an estimated read time.
+- **Goodreads** (`currently-reading` shelf): set `goodreadsUserId` in `src/site.config.ts`. Your profile must be public. Goodreads retired its public RSS feed, so this reads the same list straight off your public profile page's HTML instead; it's inherently more brittle than a real feed, since Goodreads can reshape that page at any time.
 
-If a feed is empty or unreachable, its box on Home stays hidden.
+If a feed is empty, unreachable, or (for Goodreads) the page markup no longer matches, its box on Home stays hidden rather than breaking the build.
 
 ## Motion
 

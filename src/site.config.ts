@@ -21,10 +21,10 @@ export const site = {
   substack: 'https://aimgmt.substack.com',
   substackFeed: 'https://aimgmt.substack.com/feed',
 
-  // Reading: Goodreads. Find your numeric user ID in your profile URL:
-  // goodreads.com/user/show/<ID>-your-name
+  // Reading: Goodreads "currently reading" shelf, read from your public
+  // profile page (Goodreads retired the RSS feed). Find your numeric user ID
+  // in your profile URL: goodreads.com/user/show/<ID>-your-name
   goodreadsUserId: '928704',
-  goodreadsShelf: 'currently-reading',
 
   // Personal writing
   cronicas: 'https://chronicles.rodrigolpborges.com',

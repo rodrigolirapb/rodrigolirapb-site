@@ -56,11 +56,20 @@ const proof = [
       <ol class="post-list">
         {posts.map((post) => (
           <li>
-            <a href={post.link}>
-              <span class="post-title">{post.title}</span>
-              <span class="quiet small">{fmt.format(post.date)}</span>
+            <a class="post-link" href={post.link}>
+              {post.image && (
+                <div class="frame post-image">
+                  <img src={post.image} alt="" loading="lazy" width="320" height="200" />
+                </div>
+              )}
+              <span class="post-body">
+                <span class="post-head">
+                  <span class="post-title">{post.title}</span>
+                  <span class="quiet small">{fmt.format(post.date)} &middot; {post.readMins} min read</span>
+                </span>
+                {post.summary && <span class="quiet post-summary">{post.summary}</span>}
+              </span>
             </a>
-            {post.summary && <p class="quiet">{post.summary}</p>}
           </li>
         ))}
       </ol>
@@ -153,10 +162,17 @@ const proof = [
 
   .post-list { list-style: none; margin: 0; padding: 0; }
   .post-list li { border-top: 1px solid var(--rule); padding-block: 1.1rem; }
-  .post-list a { display: flex; justify-content: space-between; gap: 1rem; text-decoration: none; color: var(--ink); }
+  .post-link { display: flex; gap: 1.25rem; text-decoration: none; color: var(--ink); }
+  .post-image { flex: none; width: 140px; aspect-ratio: 16 / 10; border-radius: 4px; }
+  .post-body { display: grid; align-content: start; gap: 0.35rem; min-width: 0; }
+  .post-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
   .post-title { font-family: var(--serif); font-size: var(--step-1); }
-  .post-list a:hover .post-title { text-decoration: underline; }
-  .post-list p { margin: 0.35rem 0 0; }
+  .post-link:hover .post-title { text-decoration: underline; }
+  .post-summary { display: block; }
+
+  @media (max-width: 560px) {
+    .post-image { width: 96px; }
+  }
 
   .books { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; flex-wrap: wrap; }
   .books a { display: grid; gap: 0.35rem; width: 150px; text-decoration: none; color: var(--ink); }
