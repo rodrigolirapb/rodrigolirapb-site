@@ -2,29 +2,36 @@
 @import '@fontsource-variable/schibsted-grotesk';
 
 :root {
-  /* Palette */
-  --paper: #f4f5f2;     /* cool page white */
-  --sheet: #ffffff;     /* the brief sheet */
-  --ink: #10211c;       /* deep green-black text */
-  --muted: #56635d;     /* secondary text */
-  --rule: #cfd6d0;      /* form lines */
-  --green: #1e4a3c;     /* links, buttons */
-  --marker: #e2ee55;    /* highlighter */
+  /* Palette: white page, a pale green-tinted surface for alternating
+     bands, and the one committed accent (green) carrying links, buttons
+     and the rare inverted section. */
+  --bg: #ffffff;         /* page background */
+  --paper: #eef2ee;      /* alternating section band + hero sheet backdrop */
+  --sheet: #ffffff;      /* elevated card surface */
+  --ink: #10211c;        /* deep green-black text */
+  --muted: #56635d;      /* secondary text */
+  --rule: #d6ddd8;       /* form lines */
+  --green: #1e4a3c;      /* links, buttons, the one inverted section */
+  --green-ink: #0d241c;  /* hover shade for green buttons/bands */
+  --marker: #e2ee55;     /* highlighter */
 
-  /* Type */
+  /* Type: tighter scale, ≥1.2 ratio between steps */
   --serif: 'Newsreader Variable', Georgia, serif;
   --sans: 'Schibsted Grotesk Variable', system-ui, sans-serif;
-  --step--1: 0.875rem;
-  --step-0: 1.0625rem;
-  --step-1: 1.3rem;
-  --step-2: 1.65rem;
-  --step-3: 2.15rem;
-  --step-4: clamp(2.5rem, 5.5vw, 4.25rem);
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.2rem;
+  --step-2: 1.45rem;
+  --step-3: 1.85rem;
+  --step-4: clamp(2.1rem, 4.5vw, 3.4rem);
 
   /* Layout */
   --page: min(1180px, 100% - 2 * var(--gutter));
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --measure: 66ch;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *,
@@ -35,7 +42,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
   font-size: var(--step-0);
@@ -66,10 +73,39 @@ a:hover { text-decoration-thickness: 2px; }
 img { max-width: 100%; height: auto; display: block; }
 
 .wrap { width: var(--page); margin-inline: auto; }
-.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.section { padding-block: clamp(3rem, 7vw, 5.5rem); }
 .lede { font-family: var(--serif); font-size: var(--step-1); line-height: 1.45; color: var(--ink); }
 .quiet { color: var(--muted); }
 .small { font-size: var(--step--1); }
+
+/* Section bands: color is what tells sections apart, not just dividers. */
+.band-paper { background: var(--paper); }
+.band-green {
+  background: var(--green);
+  color: #fff;
+}
+.band-green .quiet { color: rgba(255, 255, 255, 0.72); }
+.band-green .lede { color: rgba(255, 255, 255, 0.88); }
+.band-green a:not(.button) { color: #fff; text-decoration-color: rgba(255, 255, 255, 0.55); }
+.band-green .button { background: #fff; color: var(--green); }
+.band-green .button:hover { background: var(--marker); color: var(--ink); }
+.band-green .button.secondary { color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.6); }
+.band-green .button.secondary:hover { background: #fff; color: var(--green); }
+
+/* Eyebrow: a small tracked-out label above a section heading. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.75em;
+}
+.band-green .eyebrow { color: var(--marker); }
+.eyebrow::before { content: ''; width: 1.4em; height: 1.5px; background: currentColor; }
 
 .button {
   display: inline-flex;
@@ -102,6 +138,33 @@ img { max-width: 100%; height: auto; display: block; }
 .frame { overflow: hidden; border-radius: 6px; background: #dfe4df; }
 .frame img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Lift: a hover response for cards and tappable rows. */
+.lift { transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out); }
+.lift:hover { transform: translateY(-4px); box-shadow: 0 16px 28px -16px rgba(16, 33, 28, 0.28); }
+
+/* Reveal: a fade-and-rise as a heading or card scrolls into view. */
+.reveal { opacity: 1; translate: 0; }
+
+/* Horizontal scroll-snap row, used for the recently-read carousel. */
+.scroll-row {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--gutter);
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  padding-bottom: 0.25rem;
+  scrollbar-width: none;
+}
+.scroll-row::-webkit-scrollbar { display: none; }
+.scroll-row > * { scroll-snap-align: start; flex: 0 0 auto; }
+
+.scroll-track { height: 3px; border-radius: 999px; background: var(--rule); margin-top: 1.5rem; overflow: hidden; }
+.band-green .scroll-track { background: rgba(255, 255, 255, 0.25); }
+.scroll-track-bar { height: 100%; width: 100%; background: var(--green); border-radius: inherit; transform-origin: left; }
+.band-green .scroll-track-bar { background: var(--marker); }
+
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .mark {
@@ -114,6 +177,18 @@ img { max-width: 100%; height: auto; display: block; }
       animation: drift linear both;
       animation-timeline: view();
     }
+    .reveal {
+      animation: reveal-up 0.6s var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+  @supports (animation-timeline: scroll(inline)) {
+    .scroll-row { scroll-timeline-name: --row-scroll; scroll-timeline-axis: inline; scroll-behavior: smooth; }
+    .scroll-track-bar {
+      animation: track-fill linear both;
+      animation-timeline: --row-scroll;
+    }
   }
 }
 
@@ -124,6 +199,13 @@ img { max-width: 100%; height: auto; display: block; }
 @keyframes drift {
   from { translate: 0 -6%; }
   to { translate: 0 6%; }
+}
+@keyframes reveal-up {
+  from { opacity: 0; translate: 0 1.75rem; }
+}
+@keyframes track-fill {
+  from { transform: scaleX(0.1); }
+  to { transform: scaleX(1); }
 }
 
 .visually-hidden {

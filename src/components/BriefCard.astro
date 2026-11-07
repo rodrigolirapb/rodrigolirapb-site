@@ -6,7 +6,7 @@ interface Props { story: Story; full?: boolean }
 const { story, full = false } = Astro.props;
 const { Content } = story;
 ---
-<article class="brief-card" data-industry={story.industry} id={story.slug}>
+<article class="brief-card lift reveal" data-industry={story.industry} id={story.slug}>
   {story.image && (
     <div class="frame parallax card-image">
       <img src={story.image} alt="" loading="lazy" width="1600" height="1000" />
@@ -29,8 +29,8 @@ const { Content } = story;
 <style>
   .brief-card {
     background: var(--sheet);
-    border-radius: 8px;
-    border: 1px solid var(--rule);
+    border-radius: 10px;
+    box-shadow: 0 1px 0 var(--rule), 0 16px 32px -24px rgba(16, 33, 28, 0.3);
     overflow: hidden;
     display: grid;
     align-content: start;

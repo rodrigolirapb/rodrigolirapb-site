@@ -17,29 +17,32 @@ const proof = [
 ];
 ---
 <Base>
-  <section class="hero wrap">
-    <div class="sheet" aria-labelledby="hero-title">
-      <p class="sheet-head quiet small"><span>Brief</span><span>{site.location}</span></p>
-      <h1 id="hero-title">AI changed the rules of the game. I help clients win it.</h1>
-      <dl class="fields">
-        <div class="row"><dt>Who</dt><dd>Rodrigo Borges, account director. Agency leader, client-side marketer and founder.</dd></div>
-        <div class="row"><dt>The problem</dt><dd>Clients are asking their agencies what AI means for their business. Most answers stop at tools.</dd></div>
-        <div class="row"><dt>My answer</dt><dd>Business cases, roadmaps and accounts that grow, with AI doing the heavy lifting and people making the calls.</dd></div>
-        <div class="row"><dt>Next step</dt><dd class="actions">
-          <a class="button" href={site.calendar}>Book a call</a>
-          <a class="button secondary" href="/work/">See the work</a>
-        </dd></div>
-      </dl>
-    </div>
-    <div class="frame portrait">
-      <img src="/images/portrait.jpg" alt="Portrait of Rodrigo Borges" width="1200" height="1500" fetchpriority="high" />
+  <section class="section band-paper">
+    <div class="wrap hero">
+      <div class="sheet" aria-labelledby="hero-title">
+        <p class="sheet-head quiet small"><span>Brief</span><span>{site.location}</span></p>
+        <h1 id="hero-title">AI changed the rules of the game. I help clients win it.</h1>
+        <dl class="fields">
+          <div class="row"><dt>Who</dt><dd>Rodrigo Borges, account director. Agency leader, client-side marketer and founder.</dd></div>
+          <div class="row"><dt>The problem</dt><dd>Clients are asking their agencies what AI means for their business. Most answers stop at tools.</dd></div>
+          <div class="row"><dt>My answer</dt><dd>Business cases, roadmaps and accounts that grow, with AI doing the heavy lifting and people making the calls.</dd></div>
+          <div class="row"><dt>Next step</dt><dd class="actions">
+            <a class="button" href={site.calendar}>Book a call</a>
+            <a class="button secondary" href="/work/">See the work</a>
+          </dd></div>
+        </dl>
+      </div>
+      <div class="frame portrait">
+        <img src="/images/portrait.jpg" alt="Portrait of Rodrigo Borges" width="1200" height="1500" fetchpriority="high" />
+      </div>
     </div>
   </section>
 
-  <section class="proof wrap" aria-label="Track record">
+  <section class="section wrap proof" aria-label="Track record">
+    <p class="eyebrow reveal">Track record</p>
     <ul>
       {proof.map((p) => (
-        <li>
+        <li class="reveal">
           <span class="num" data-count={p.value} data-prefix={p.prefix} data-suffix={p.suffix}>{p.prefix}{p.value}{p.suffix}</span>
           <span class="label">{p.label}</span>
         </li>
@@ -48,37 +51,45 @@ const proof = [
   </section>
 
   {posts.length > 0 && (
-    <section class="section wrap posts">
-      <div class="split-head">
-        <h2>Latest from AI Management</h2>
-        <a href={site.substack}>Subscribe on Substack</a>
-      </div>
-      <ol class="post-list">
-        {posts.map((post) => (
-          <li>
-            <a class="post-link" href={post.link}>
-              {post.image && (
-                <div class="frame post-image">
-                  <img src={post.image} alt="" loading="lazy" width="320" height="200" />
-                </div>
-              )}
-              <span class="post-body">
-                <span class="post-head">
-                  <span class="post-title">{post.title}</span>
-                  <span class="quiet small">{fmt.format(post.date)} &middot; {post.readMins} min read</span>
+    <section class="section band-paper">
+      <div class="wrap posts">
+        <div class="split-head">
+          <div>
+            <p class="eyebrow reveal">Writing</p>
+            <h2 class="reveal">Latest from AI Management</h2>
+          </div>
+          <a href={site.substack}>Subscribe on Substack</a>
+        </div>
+        <ol class="post-list">
+          {posts.map((post) => (
+            <li class="reveal">
+              <a class="post-link lift" href={post.link}>
+                {post.image && (
+                  <div class="frame post-image">
+                    <img src={post.image} alt="" loading="lazy" width="320" height="200" />
+                  </div>
+                )}
+                <span class="post-body">
+                  <span class="post-head">
+                    <span class="post-title">{post.title}</span>
+                    <span class="quiet small">{fmt.format(post.date)} &middot; {post.readMins} min read</span>
+                  </span>
+                  {post.summary && <span class="quiet post-summary">{post.summary}</span>}
                 </span>
-                {post.summary && <span class="quiet post-summary">{post.summary}</span>}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ol>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
   )}
 
-  <section class="section wrap">
+  <section class="section wrap work">
     <div class="split-head">
-      <h2>Selected work</h2>
+      <div>
+        <p class="eyebrow reveal">Portfolio</p>
+        <h2 class="reveal">Selected work</h2>
+      </div>
       <a href="/work/">All industry stories</a>
     </div>
     <div class="cards">
@@ -87,31 +98,40 @@ const proof = [
   </section>
 
   {books.length > 0 && (
-    <section class="section wrap reading">
-      <div class="split-head">
-        <h2>Recently read</h2>
-        {site.goodreadsUserId && (
-          <a href={`https://www.goodreads.com/user/show/${site.goodreadsUserId}`}>More on Goodreads</a>
-        )}
+    <section class="section band-paper">
+      <div class="wrap reading">
+        <div class="split-head">
+          <div>
+            <p class="eyebrow reveal">Reading</p>
+            <h2 class="reveal">Recently read</h2>
+          </div>
+          {site.goodreadsUserId && (
+            <a href={`https://www.goodreads.com/user/show/${site.goodreadsUserId}`}>More on Goodreads</a>
+          )}
+        </div>
+        <ul class="books scroll-row">
+          {books.map((b) => (
+            <li>
+              <a href={b.link} class="lift">
+                {b.cover && <img src={b.cover} alt="" width="120" height="180" loading="lazy" />}
+                <span class="book-title">{b.title}</span>
+                <span class="quiet small">{b.author}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="scroll-track"><div class="scroll-track-bar"></div></div>
       </div>
-      <ul class="books">
-        {books.map((b) => (
-          <li>
-            <a href={b.link}>
-              {b.cover && <img src={b.cover} alt="" width="120" height="180" loading="lazy" />}
-              <span class="book-title">{b.title}</span>
-              <span class="quiet small">{b.author}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
     </section>
   )}
 
-  <section class="section wrap closing">
-    <h2>Have an account that needs an AI plan?</h2>
-    <p class="lede">Thirty minutes is enough to see whether I can help.</p>
-    <a class="button" href={site.calendar}>Book a call</a>
+  <section class="section band-green">
+    <div class="wrap closing">
+      <p class="eyebrow reveal">Next step</p>
+      <h2 class="reveal">Have an account that needs an AI plan?</h2>
+      <p class="lede">Thirty minutes is enough to see whether I can help.</p>
+      <a class="button" href={site.calendar}>Book a call</a>
+    </div>
   </section>
 </Base>
 
@@ -121,16 +141,15 @@ const proof = [
     grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
     gap: clamp(1.5rem, 4vw, 3.5rem);
     align-items: stretch;
-    padding-top: clamp(1rem, 3vw, 2.5rem);
   }
   .sheet {
     background: var(--sheet);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: clamp(1.5rem, 4vw, 3rem);
+    box-shadow: 0 24px 48px -28px rgba(16, 33, 28, 0.35);
   }
   .sheet-head { display: flex; justify-content: space-between; margin-bottom: 1.5rem; }
-  .sheet h1 { max-width: 16ch; margin-bottom: 1.75rem; }
+  .sheet h1 { max-width: 18ch; margin-bottom: 1.75rem; }
   .fields .row {
     display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem;
     padding-block: 0.95rem; border-top: 1px solid var(--rule);
@@ -139,7 +158,7 @@ const proof = [
   dt { color: var(--muted); font-size: var(--step--1); padding-top: 0.2em; }
   dd { margin: 0; max-width: 52ch; }
   .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  .portrait { min-height: 420px; }
+  .portrait { min-height: 420px; border-radius: 10px; box-shadow: 0 24px 48px -28px rgba(16, 33, 28, 0.35); }
 
   /* The one orchestrated moment: the brief fills in, row by row. */
   @media (prefers-reduced-motion: no-preference) {
@@ -153,21 +172,23 @@ const proof = [
   @keyframes fill { from { opacity: 0; translate: 0 0.6rem; } }
 
   .proof ul {
-    list-style: none; margin: clamp(2.5rem, 6vw, 4rem) 0 0; padding: 0;
+    list-style: none; margin: 1.5rem 0 0; padding: 0;
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
   }
   .proof li { display: grid; align-content: start; gap: 0.35rem; padding-top: 1rem; border-top: 2px solid var(--ink); }
-  .num { font-family: var(--serif); font-size: var(--step-4); line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
+  .num { font-family: var(--serif); font-size: var(--step-3); line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
   .label { color: var(--muted); max-width: 22ch; }
 
-  .split-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+  .split-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
   .split-head h2 { margin: 0; }
+  .split-head .eyebrow { margin-bottom: 0.4em; }
 
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 
   .post-list { list-style: none; margin: 0; padding: 0; }
   .post-list li { border-top: 1px solid var(--rule); padding-block: 1.1rem; }
-  .post-link { display: flex; gap: 1.25rem; text-decoration: none; color: var(--ink); }
+  .post-link { display: flex; gap: 1.25rem; text-decoration: none; color: var(--ink); border-radius: 8px; padding: 0.5rem; margin: -0.5rem; }
+  .post-link:hover { background: var(--sheet); }
   .post-image { flex: none; width: 140px; aspect-ratio: 16 / 10; border-radius: 4px; }
   .post-body { display: grid; align-content: start; gap: 0.35rem; min-width: 0; }
   .post-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
@@ -179,13 +200,16 @@ const proof = [
     .post-image { width: 96px; }
   }
 
-  .books { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; flex-wrap: wrap; }
-  .books a { display: grid; gap: 0.35rem; width: 150px; text-decoration: none; color: var(--ink); }
+  .books { list-style: none; margin: 0; padding: 0; }
+  .books a {
+    display: grid; gap: 0.5rem; width: 150px; text-decoration: none; color: var(--ink);
+    background: var(--sheet); border-radius: 8px; padding: 0.75rem;
+  }
   .books img { border-radius: 4px; width: 120px; height: auto; }
   .book-title { font-family: var(--serif); }
 
-  .closing { text-align: left; }
-  .closing h2 { max-width: 20ch; }
+  .closing h2 { max-width: 20ch; margin-bottom: 0.5em; }
+  .closing .lede { margin-bottom: 1.75rem; }
 
   @media (max-width: 960px) {
     .cards { grid-template-columns: 1fr; max-width: 640px; }
