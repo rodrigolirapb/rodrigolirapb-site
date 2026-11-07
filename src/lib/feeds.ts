@@ -67,9 +67,10 @@ function excerpt(text: string, max = 220) {
 }
 
 // The first full paragraph of a post's HTML, as plain text. Falls back to
-// the whole body (e.g. for posts with no <p> tags) if none is found.
+// the whole body (e.g. for posts with no <p> tags) if none is found. The
+// lookahead on <p> keeps this from also matching tags like <picture>.
 function firstParagraph(html: string) {
-  const p = html.match(/<p[^>]*>(.*?)<\/p>/s);
+  const p = html.match(/<p(?:\s[^>]*)?>(.*?)<\/p>/s);
   return clean(p ? p[1] : html);
 }
 
