@@ -3,10 +3,10 @@ import Base from '../layouts/Base.astro';
 import BriefCard from '../components/BriefCard.astro';
 import { site } from '../site.config';
 import { stories } from '../lib/stories';
-import { getPosts, getBooks } from '../lib/feeds';
+import { getPosts } from '../lib/feeds';
 
 const posts = await getPosts(3);
-const books = await getBooks(3);
+const books = site.recentlyRead.slice(0, 5);
 const fmt = new Intl.DateTimeFormat('en-CA', { month: 'short', day: 'numeric', year: 'numeric' });
 
 const proof = [
@@ -88,7 +88,12 @@ const proof = [
 
   {books.length > 0 && (
     <section class="section wrap reading">
-      <h2>Currently reading</h2>
+      <div class="split-head">
+        <h2>Recently read</h2>
+        {site.goodreadsUserId && (
+          <a href={`https://www.goodreads.com/user/show/${site.goodreadsUserId}`}>More on Goodreads</a>
+        )}
+      </div>
       <ul class="books">
         {books.map((b) => (
           <li>

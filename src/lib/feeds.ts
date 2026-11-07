@@ -1,11 +1,10 @@
-// Feeds (and the Goodreads profile page) are read at build time. The daily
-// rebuild keeps them fresh. Any failure returns an empty list, and the
-// matching box on Home stays hidden.
+// The Substack feed is read at build time. The daily rebuild keeps it fresh.
+// Any failure returns an empty list, and the matching box on Home stays
+// hidden.
 import { XMLParser } from 'fast-xml-parser';
 import { site } from '../site.config';
 
 export type Post = { title: string; link: string; date: Date; summary: string; image: string; readMins: number };
-export type Book = { title: string; author: string; link: string; cover: string };
 
 const parser = new XMLParser({ ignoreAttributes: false, cdataPropName: false });
 const UA = 'rodrigolpborges.com site build';
@@ -15,16 +14,6 @@ async function fetchXml(url: string) {
     const res = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(10000) });
     if (!res.ok) return null;
     return parser.parse(await res.text());
-  } catch {
-    return null;
-  }
-}
-
-async function fetchText(url: string) {
-  try {
-    const res = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(10000) });
-    if (!res.ok) return null;
-    return await res.text();
   } catch {
     return null;
   }
@@ -91,33 +80,4 @@ export async function getPosts(limit = 3): Promise<Post[]> {
       readMins: Math.max(1, Math.round(words / 200)),
     };
   });
-}
-
-// Goodreads retired the public list_rss feed, so this reads the same
-// "currently reading" list from the public profile page's own HTML. Brittle
-// by nature (Goodreads can reshape this markup any time) -- any parsing
-// failure or shape change falls back to an empty list, same as a dead feed.
-export async function getBooks(limit = 3): Promise<Book[]> {
-  if (!site.goodreadsUserId) return [];
-  const html = await fetchText(`https://www.goodreads.com/user/show/${site.goodreadsUserId}`);
-  if (!html) return [];
-  const start = html.indexOf('id="currentlyReadingReviews"');
-  if (start === -1) return [];
-  const section = html.slice(start, start + 24000);
-  const blocks = section.split(/<div class="Updates(?: no_border)?">/).slice(1, limit + 1);
-
-  const books: Book[] = [];
-  for (const block of blocks) {
-    const title = block.match(/class="bookTitle" href="([^"]+)">([^<]+)</);
-    if (!title) continue;
-    const author = block.match(/class="authorName" href="[^"]*">([^<]+)</);
-    const cover = block.match(/<img alt="[^"]*" src="([^"]+)"/);
-    books.push({
-      title: clean(title[2]),
-      author: author ? clean(author[1]) : '',
-      link: `https://www.goodreads.com${title[1]}`,
-      cover: cover ? cover[1] : '',
-    });
-  }
-  return books;
 }

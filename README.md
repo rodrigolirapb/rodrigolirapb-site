@@ -14,7 +14,7 @@ Personal site for Rodrigo Borges, account director for the AI era. Built with [A
 
 ## Everyday edits
 
-- **Links, email, LinkedIn, CV, Goodreads ID:** `src/site.config.ts`. An empty value hides whatever depends on it.
+- **Links, email, LinkedIn, CV, Goodreads ID, recently read books:** `src/site.config.ts`. An empty value hides whatever depends on it.
 - **New industry story:** copy `src/stories/energy.md`, rename it, edit the fields. It appears on Work automatically. `order` sets its position; the first three show on Home.
 - **Now page:** edit the date and the three lists at the top of `src/pages/now.astro`.
 - **Images:** replace the placeholders in `public/images/` with files of the same name:
@@ -28,9 +28,10 @@ Personal site for Rodrigo Borges, account director for the AI era. Built with [A
 At build time the site reads:
 
 - **AI Management** (`aimgmt.substack.com/feed`): the 3 newest posts show on Home, each with an excerpt from the post's first paragraph, a thumbnail pulled from the post itself (if it has one), and an estimated read time.
-- **Goodreads** (`currently-reading` shelf): set `goodreadsUserId` in `src/site.config.ts`. Your profile must be public. Goodreads retired its public RSS feed, so this reads the same list straight off your public profile page's HTML instead; it's inherently more brittle than a real feed, since Goodreads can reshape that page at any time.
 
-If a feed is empty, unreachable, or (for Goodreads) the page markup no longer matches, its box on Home stays hidden rather than breaking the build.
+If the feed is empty or unreachable, its box on Home stays hidden rather than breaking the build.
+
+**Recently read** isn't a feed: Goodreads doesn't expose a public, reliably-ordered "last read" list, so update `recentlyRead` in `src/site.config.ts` by hand whenever you finish a book. Each entry links out to its Goodreads page; `goodreadsUserId` drives the "More on Goodreads" link next to the section heading.
 
 ## Motion
 
