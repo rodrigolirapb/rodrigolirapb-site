@@ -6,7 +6,7 @@ import { stories } from '../lib/stories';
 import { getPosts } from '../lib/feeds';
 
 const posts = await getPosts(3);
-const books = site.recentlyRead.slice(0, 5);
+const books = site.recentlyRead;
 const fmt = new Intl.DateTimeFormat('en-CA', { month: 'short', day: 'numeric', year: 'numeric' });
 
 const proof = [

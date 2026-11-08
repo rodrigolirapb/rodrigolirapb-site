@@ -26,11 +26,11 @@ export const site = {
   // goodreads.com/user/show/<ID>-your-name
   goodreadsUserId: '928704',
 
-  // Recently read: the last 5 books you've read, newest first. Goodreads
-  // doesn't expose this in a reliable public order without signing in, so
-  // keep this list current yourself. `link` should point to the book's
-  // Goodreads page; `cover` is optional (leave empty to hide the image).
-  // Fill in your real last 5 books here, newest first. Example shape:
+  // Recently read: the books you've read, newest first. Goodreads doesn't
+  // expose this in a reliable public order without signing in, so keep this
+  // list current yourself. `link` should point to the book's Goodreads page;
+  // `cover` is optional (leave empty to hide the image). Shows as a lateral
+  // scroll carousel on Home. Example shape:
   // { title: 'Book title', author: 'Author name', link: 'https://www.goodreads.com/book/show/...', cover: '' }
   recentlyRead: [
     {
@@ -62,6 +62,24 @@ export const site = {
       author: 'Sigrid Nunez',
       link: 'https://www.goodreads.com/book/show/40164365-the-friend',
       cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1544364669i/40164365.jpg',
+    },
+    {
+      title: 'A Swim in a Pond in the Rain',
+      author: 'George Saunders',
+      link: 'https://www.goodreads.com/book/show/53487237-a-swim-in-a-pond-in-the-rain',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1627489209i/53487237.jpg',
+    },
+    {
+      title: 'Small Things Like These',
+      author: 'Claire Keegan',
+      link: 'https://www.goodreads.com/book/show/58662236-small-things-like-these',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734631773i/58662236.jpg',
+    },
+    {
+      title: 'Sing to It: New Stories',
+      author: 'Amy Hempel',
+      link: 'https://www.goodreads.com/book/show/40639315',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1551618476i/40639315.jpg',
     },
   ] as { title: string; author: string; link: string; cover?: string }[],
 
