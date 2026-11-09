@@ -16,10 +16,10 @@ The framing points forward. Never draw attention to time away from agencies, and
 
 **Brand promise:** I help brands and their agencies turn AI from a threat into a growth plan, then deliver it account by account.
 
-**Tagline in use (Home hero):** AI changed the rules of the game. I help clients win it.
+**Tagline in use (Home hero):** Account leadership for the AI era.
 
 Alternatives:
-- Account leadership for the AI era.
+- AI changed the rules of the game. I help clients win it.
 - Sharper briefs. Faster answers. Bigger accounts. AI in the room.
 
 ## Proof points (only use these; never invent numbers)
