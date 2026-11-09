@@ -96,6 +96,9 @@ export const site = {
       { label: 'Read the Chronicles', href: 'https://lnkd.in/eucq9tgw' },
       { label: 'Get it on Kindle', href: 'https://www.amazon.ca/dp/B0HMMKHQZM' },
     ],
+    space: [
+      { label: 'View the service map', href: 'https://rodrigolpborges.notion.site/spacey-invoice-financing?source=copy_link' },
+    ],
   } as Record<string, { label: string; href: string }[]>,
 };
 

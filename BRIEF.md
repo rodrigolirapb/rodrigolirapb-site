@@ -38,6 +38,15 @@ Alternatives:
 - Chronicles: 99 personal texts written on Medium 2015 to 2020, given a home on a dedicated site. Claude fetched and organized them via Notion, translated them into seven languages (English, French, Spanish, Arabic, Japanese, Hindi, Chinese), and built Kindle editions published on Amazon. Call the project "Chronicles" in site copy, not "Crônicas".
 - Languages: English and Portuguese (bilingual), Spanish (intermediate), French (learning).
 - First job 2005: marketing intern at a children's theatre in Brasília while studying Communication at the University of Brasília.
+- Led a CAD 4,000,000 hardware and software integration project across 3 companies: sensors in 26 substation power transformers, 4 software management modules delivered.
+- Structured new resale partners in India, the Philippines and Indonesia for mission-critical systems; slightly profitable in year one, grew until COVID-19.
+- Led a 3-company trade show presence in São Paulo to launch a FLISR (fault location, isolation and service restoration) solution.
+- A CAD 1,130,000 sale (2022) to Brazil's largest energy distribution utility: 56 smart meters for circuit breakers, with hardware integration and software development.
+- A CAD 350,000 sale (2021) replacing a steel plant's SCADA system in Espírito Santo, Brazil, after 18 months of proposal revisions.
+- Opened a new ad agency branch from zero; self-sustaining within 6 months, creative director of both branches a year later.
+- Managed financial tracking and audits for a bank-sponsored environmental NGO program in Brazil, across 5 projects.
+- Built a service map and supporting research for a space-industry marketplace startup considering invoice financing for its clients.
+- Ran the print and TV ad operation for a supermarket chain, modernizing the layout of both: weekly circulars, flyers and inserts, and the daily TV promo spots.
 
 ## Audience
 
@@ -65,7 +74,7 @@ No separate Writing or Reading pages. English only, no language toggle.
 ## Content
 
 - **Newsletter:** AI Management, https://aimgmt.substack.com. Pillars: AI strategy for brands, decisions with AI, trust and governance, leading the change. A 21-article series follows the Rotman "Generative and Agentic AI for Business" curriculum.
-- **Industry stories** (`src/stories/*.md`): fields are Client, Problem, Moves, Result, Where AI fits today. 250 to 400 words. **Never show real third-party client names**; use descriptors like "a global utility". Rodrigo's own ventures (Spin Engenharia, Nrolled) are named directly, not anonymized, since they're his companies rather than confidential clients. Energy, hospitality and tech exist; Rodrigo will write retail, automotive, government, non-profit and financial services later.
+- **Industry stories** (`src/stories/*.md`): fields are Client, Problem, Moves, Result, Where AI fits today. 250 to 400 words. **Never show real third-party client names**; use descriptors like "a global utility". Rodrigo's own ventures (Spin Engenharia, Nrolled) are named directly, not anonymized, since they're his companies rather than confidential clients. Energy (6 stories), Hospitality, Tech, Advertising, Non-profit, Space and Retail exist; automotive, government and financial services are still to come.
 - **AI stories**: a separate `industry: AI` tag (not a market vertical) for stories about directing AI to build something, agent-led work demos. Optional `video` frontmatter field plays an mp4 (from `public/videos/`) in the card's image slot instead of a static image; omit both `image` and `video` for a text-only card. Optional `linksKey` frontmatter field points to an entry in `site.storyLinks` (in `site.config.ts`) and renders outbound buttons under the fields, e.g. the Chronicles story links out to the site and the Kindle book. Keep the actual URLs in `site.config.ts`, never in the story file.
 
 ## Look, feel and voice
