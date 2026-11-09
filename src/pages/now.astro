@@ -7,14 +7,16 @@ const updated = 'November 2026';
 const building = [
   'This site, built with Claude Code and deployed on Vercel.',
   'AI Management, a weekly newsletter on what AI means for brands and their agencies.',
+  'Updates on the Spin Partner Platform.',
+  { text: 'Supporting Movember.', href: site.movember },
 ];
 const learning = [
   'Generative and agentic AI for business, using the Rotman program outline as the spine for my writing.',
   'French, one lesson at a time.',
+  'Reading as many books as I can put my hands on.',
 ];
 const lookingFor = [
-  'Account director and account leadership roles at Toronto agencies.',
-  'Contract and interim work is welcome.',
+  'Connections at Toronto agencies.',
 ];
 ---
 <Base title="Now" description="What I am building, learning and looking for this month.">
@@ -23,7 +25,7 @@ const lookingFor = [
     <p class="quiet">Updated {updated}</p>
 
     <h2>Building</h2>
-    <ul>{building.map((i) => <li>{i}</li>)}</ul>
+    <ul>{building.map((i) => <li>{typeof i === 'string' ? i : <a href={i.href}>{i.text}</a>}</li>)}</ul>
 
     <h2>Learning</h2>
     <ul>{learning.map((i) => <li>{i}</li>)}</ul>

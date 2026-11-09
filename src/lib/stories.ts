@@ -8,6 +8,8 @@ export type Story = {
   client: string;
   order: number;
   image?: string;
+  video?: string;
+  linksKey?: string;
   problem: string;
   moves: string;
   result: string;

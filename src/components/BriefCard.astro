@@ -1,13 +1,21 @@
 ---
 // A story rendered as a one-page agency brief.
 import type { Story } from '../lib/stories';
+import { site } from '../site.config';
 interface Props { story: Story; full?: boolean }
 // full: Work page (all fields). Otherwise a compact card for Home.
 const { story, full = false } = Astro.props;
 const { Content } = story;
+const links = story.linksKey ? site.storyLinks[story.linksKey] : undefined;
 ---
-<article class="brief-card lift reveal" data-industry={story.industry} id={story.slug}>
-  {story.image && (
+<article class:list={["brief-card", "lift", "reveal", { "no-media": !story.image && !story.video }]} data-industry={story.industry} id={story.slug}>
+  {story.video ? (
+    <div class="frame card-image">
+      <video controls preload="metadata">
+        <source src={story.video} type="video/mp4" />
+      </video>
+    </div>
+  ) : story.image && (
     <div class="frame parallax card-image">
       <img src={story.image} alt="" loading="lazy" width="1600" height="1000" />
     </div>
@@ -22,7 +30,16 @@ const { Content } = story;
       <div><dt>Result</dt><dd><span class="mark">{story.result}</span></dd></div>
       {full && <div><dt>Where AI fits today</dt><dd>{story.ai}</dd></div>}
     </dl>
-    {full ? <div class="story-more"><Content /></div> : <a class="more" href={`/work/#${story.slug}`}>Read the brief</a>}
+    {full ? (
+      <div class="story-more">
+        <Content />
+        {links && links.length > 0 && (
+          <div class="story-links">
+            {links.map((l) => <a class="button secondary" href={l.href} target="_blank" rel="noopener">{l.label}</a>)}
+          </div>
+        )}
+      </div>
+    ) : <a class="more" href={`/work/#${story.slug}`}>Read the brief</a>}
   </div>
 </article>
 
@@ -49,6 +66,7 @@ const { Content } = story;
   dt { font-size: var(--step--1); color: var(--muted); padding-top: 0.15em; }
   dd { margin: 0; }
   .story-more :global(p:first-child) { margin-top: 1.25rem; }
+  .story-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
   @media (max-width: 560px) {
     .fields div { grid-template-columns: 1fr; gap: 0.2rem; }
   }

@@ -85,6 +85,18 @@ export const site = {
 
   // Personal writing
   cronicas: 'https://chronicles.rodrigolpborges.com',
+
+  // Now page: supporting Movember this year
+  movember: 'https://ca.movember.com/donate/details?memberId=15595714#amount',
+
+  // Extra outbound links for specific Work stories, keyed by the story's
+  // `linksKey` frontmatter field. Rendered as buttons under the story fields.
+  storyLinks: {
+    chronicles: [
+      { label: 'Read the Chronicles', href: 'https://lnkd.in/eucq9tgw' },
+      { label: 'Get it on Kindle', href: 'https://www.amazon.ca/dp/B0HMMKHQZM' },
+    ],
+  } as Record<string, { label: string; href: string }[]>,
 };
 
 export const nav = [

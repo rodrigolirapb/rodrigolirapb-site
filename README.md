@@ -22,6 +22,7 @@ Personal site for Rodrigo Borges, account director for the AI era. Built with [A
   - `about-early.jpg` (About, 4:5)
   - `story-energy.jpg`, `story-hospitality.jpg`, `story-tech.jpg` (16:10, at least 2400 px wide)
   - `og.jpg` (link preview, 1200 x 630)
+- **New industry story with video:** add an mp4 to `public/videos/` (16:9 plays best) and set `video: /videos/your-file.mp4` in the story's frontmatter instead of `image`. It plays in the same card slot, with controls, no autoplay.
 
 ## Feeds
 

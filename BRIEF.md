@@ -24,14 +24,18 @@ Alternatives:
 
 ## Proof points (only use these; never invent numbers)
 
-- Land-and-expand across three markets of a global utility from one first sale: two closed, the third in progress.
+- Land-and-expand across three markets of a global utility from one first sale: two closed, with ongoing support contracts, the third in progress.
 - Lead generation +30% against a +10% target; new opportunities +62% against +50%.
 - Ran a 20-person agency (Doisnovemeia); led a 10-person creative team (Plá).
-- Led marketing, operations and global sales at a B2B industrial software company, 2019 to 2026: budget, agencies, campaigns, website, content, two trade shows a year, a 7-person sales and marketing team. Prospect meetings went from zero to three or four a week.
+- Led marketing, operations and global sales at Spin Engenharia (own company), 2019 to 2026: budget, agencies, campaigns, website, content, two trade shows a year, a 7-person sales and marketing team. Prospect meetings went from zero to three or four a week.
 - Co-founder and CMO of Nrolled (Toronto hospitality workforce platform); closed a 66K ACV deal with a corporation.
 - Eight industries: retail, automotive, government, non-profit, financial services, tech, energy, hospitality.
 - Leads with frequent, direct, caring feedback; uses MEDDICC for deal health.
-- Certifications: EMBA, PMP, PMI-ACP, Scrum Product Owner.
+- Certifications: Rotman School of Management EMBA, PMP-PMI, ACP-PMI, Professional Scrum Product Owner™ I.
+- Spin Partner Platform: built in 4 weeks, directing Claude Code and Lovable; about 28,000 lines of code, 80 automated tests. A two-sided system (partner portal + control center) for Spin's partner sales.
+- Directed an AI agent (Hunter.io search + Notion) to build a 128-lead partner prospect list for Spin's North American utility and cooperative push, each lead labelled by fit.
+- Connected Claude to Notion via MCP to turn a public Natural Resources Canada webpage into a live database: 233 rows, $709M CAD tracked across 10 programs.
+- Chronicles: 99 personal texts written on Medium 2015 to 2020, given a home on a dedicated site. Claude fetched and organized them via Notion, translated them into seven languages (English, French, Spanish, Arabic, Japanese, Hindi, Chinese), and built Kindle editions published on Amazon. Call the project "Chronicles" in site copy, not "Crônicas".
 - Languages: English and Portuguese (bilingual), Spanish (intermediate), French (learning).
 - First job 2005: marketing intern at a children's theatre in Brasília while studying Communication at the University of Brasília.
 
@@ -61,7 +65,8 @@ No separate Writing or Reading pages. English only, no language toggle.
 ## Content
 
 - **Newsletter:** AI Management, https://aimgmt.substack.com. Pillars: AI strategy for brands, decisions with AI, trust and governance, leading the change. A 21-article series follows the Rotman "Generative and Agentic AI for Business" curriculum.
-- **Industry stories** (`src/stories/*.md`): fields are Client, Problem, Moves, Result, Where AI fits today. 250 to 400 words. **Never show client names**; use descriptors like "a global utility". Energy, hospitality and tech exist; Rodrigo will write retail, automotive, government, non-profit and financial services later.
+- **Industry stories** (`src/stories/*.md`): fields are Client, Problem, Moves, Result, Where AI fits today. 250 to 400 words. **Never show real third-party client names**; use descriptors like "a global utility". Rodrigo's own ventures (Spin Engenharia, Nrolled) are named directly, not anonymized, since they're his companies rather than confidential clients. Energy, hospitality and tech exist; Rodrigo will write retail, automotive, government, non-profit and financial services later.
+- **AI stories**: a separate `industry: AI` tag (not a market vertical) for stories about directing AI to build something, agent-led work demos. Optional `video` frontmatter field plays an mp4 (from `public/videos/`) in the card's image slot instead of a static image; omit both `image` and `video` for a text-only card. Optional `linksKey` frontmatter field points to an entry in `site.storyLinks` (in `site.config.ts`) and renders outbound buttons under the fields, e.g. the Chronicles story links out to the site and the Kindle book. Keep the actual URLs in `site.config.ts`, never in the story file.
 
 ## Look, feel and voice
 

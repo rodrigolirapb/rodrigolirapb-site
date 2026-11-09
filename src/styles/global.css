@@ -137,6 +137,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* Image frame for photos and Midjourney art */
 .frame { overflow: hidden; border-radius: 6px; background: #dfe4df; }
 .frame img { width: 100%; height: 100%; object-fit: cover; }
+.frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Lift: a hover response for cards and tappable rows. */
 .lift { transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out); }

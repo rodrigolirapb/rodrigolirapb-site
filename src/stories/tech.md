@@ -1,7 +1,7 @@
 ---
 title: "Building a pipeline from zero"
 industry: Tech
-client: "A B2B industrial software company"
+client: "Spin Engenharia (own company)"
 order: 3
 image: /images/story-tech.jpg
 problem: "A strong engineering product with almost no marketing engine behind it. Prospect meetings were close to zero."
