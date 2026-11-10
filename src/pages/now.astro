@@ -6,14 +6,14 @@ import { site } from '../site.config';
 const updated = 'November 2026';
 const building = [
   'This site, built with Claude Code and deployed on Vercel.',
-  'AI Management, a weekly newsletter on what AI means for brands and their agencies.',
-  'Updates on the Spin Partner Platform.',
+  { text: 'AI Management, a weekly newsletter on what AI means for brands and their agencies.', href: site.substack },
+  { text: 'Updates on the Spin Partner Platform.', href: site.spinPartnerPlatformDemo },
   { text: 'Supporting Movember.', href: site.movember },
 ];
 const learning = [
   'Generative and agentic AI for business, using the Rotman program outline as the spine for my writing.',
   'French, one lesson at a time.',
-  'Reading as many books as I can put my hands on.',
+  { text: 'Reading as many books as I can put my hands on.', href: `https://www.goodreads.com/user/show/${site.goodreadsUserId}` },
 ];
 const lookingFor = [
   'Connections at Toronto agencies.',
@@ -28,7 +28,7 @@ const lookingFor = [
     <ul>{building.map((i) => <li>{typeof i === 'string' ? i : <a href={i.href}>{i.text}</a>}</li>)}</ul>
 
     <h2>Learning</h2>
-    <ul>{learning.map((i) => <li>{i}</li>)}</ul>
+    <ul>{learning.map((i) => <li>{typeof i === 'string' ? i : <a href={i.href}>{i.text}</a>}</li>)}</ul>
 
     <h2>Looking for</h2>
     <ul>{lookingFor.map((i) => <li>{i}</li>)}</ul>

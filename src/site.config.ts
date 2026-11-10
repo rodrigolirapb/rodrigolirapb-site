@@ -95,6 +95,9 @@ export const site = {
   // Now page: supporting Movember this year
   movember: 'https://ca.movember.com/donate/details?memberId=15595714#amount',
 
+  // Now page: Spin Partner Platform demo video
+  spinPartnerPlatformDemo: 'https://youtu.be/_yUSSG6K8F0?si=KtZ1qgNIcoattlaW',
+
   // Extra outbound links for specific Work stories, keyed by the story's
   // `linksKey` frontmatter field. Rendered as buttons under the story fields.
   storyLinks: {
