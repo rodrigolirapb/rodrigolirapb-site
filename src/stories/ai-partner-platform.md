@@ -1,7 +1,7 @@
 ---
 title: "A partner platform, built in four weeks"
 industry: AI
-client: "Spin Engenharia (own company)"
+client: "Spin Eng"
 order: 4
 video: /videos/spin-partner-platform.mp4
 problem: "Partner sales ran on email requests, prices in spreadsheets and quotes that took days, with nobody holding a clear view of where a deal stood."

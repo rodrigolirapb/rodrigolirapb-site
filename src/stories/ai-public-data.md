@@ -1,7 +1,7 @@
 ---
 title: "A government webpage, turned into a live database"
 industry: AI
-client: "Spin Engenharia (own company)"
+client: "Spin Eng"
 order: 6
 video: /videos/nrcan-notion-demo.mp4
 problem: "Natural Resources Canada publishes a table of every energy R&D project it funds, recipient, program, dollars, technology. Public, but just HTML. No API, no export."

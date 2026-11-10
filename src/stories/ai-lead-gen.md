@@ -1,7 +1,7 @@
 ---
 title: "128 partner leads, built with an AI agent"
 industry: AI
-client: "Spin Engenharia (own company)"
+client: "Spin Eng"
 order: 5
 image: /images/story-ai-lead-gen.jpg
 problem: "A new product aimed at North American electric utilities and cooperatives needed a partner route to market, and no lead list to start from."

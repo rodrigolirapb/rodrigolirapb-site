@@ -27,7 +27,7 @@ Alternatives:
 - Land-and-expand across three markets of a global utility from one first sale: two closed, with ongoing support contracts, the third in progress.
 - Lead generation +30% against a +10% target; new opportunities +62% against +50%.
 - Ran a 20-person agency (Doisnovemeia); led a 10-person creative team (Plá).
-- Led marketing, operations and global sales at Spin Engenharia (own company), 2019 to 2026: budget, agencies, campaigns, website, content, two trade shows a year, a 7-person sales and marketing team. Prospect meetings went from zero to three or four a week.
+- Led marketing, operations and global sales at Spin Eng, 2019 to 2026: budget, agencies, campaigns, website, content, two trade shows a year, a 7-person sales and marketing team. Prospect meetings went from zero to three or four a week.
 - Co-founder and CMO of Nrolled (Toronto hospitality workforce platform); closed a 66K ACV deal with a corporation.
 - Eight industries: retail, automotive, government, non-profit, financial services, tech, energy, hospitality.
 - Leads with frequent, direct, caring feedback; uses MEDDICC for deal health.
