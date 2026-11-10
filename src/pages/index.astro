@@ -28,7 +28,7 @@ const proof = [
           <div class="row"><dt>How</dt><dd>Business cases and roadmaps, built on markets and seats most account leads haven't worked, with AI doing the heavy lifting and people making the calls.</dd></div>
           <div class="row"><dt>What</dt><dd>Direct, caring feedback and steady deal health, not just a plan on paper.</dd></div>
           <div class="row"><dt>Next step</dt><dd class="actions">
-            <a class="button" href={site.calendar}>Book a call</a>
+            <a class="button" href={site.calendar} target="_blank" rel="noopener">Book a call</a>
             <a class="button secondary" href="/work/">See the work</a>
           </dd></div>
         </dl>
@@ -59,12 +59,12 @@ const proof = [
             <p class="eyebrow reveal">Writing</p>
             <h2 class="reveal">Latest from AI Management</h2>
           </div>
-          <a href={site.substack}>Subscribe on Substack</a>
+          <a href={site.substack} target="_blank" rel="noopener">Subscribe on Substack</a>
         </div>
         <ol class="post-list">
           {posts.map((post) => (
             <li class="reveal">
-              <a class="post-link lift" href={post.link}>
+              <a class="post-link lift" href={post.link} target="_blank" rel="noopener">
                 {post.image && (
                   <div class="frame post-image">
                     <img src={post.image} alt="" loading="lazy" width="320" height="200" />
@@ -107,13 +107,13 @@ const proof = [
             <h2 class="reveal">Recently read</h2>
           </div>
           {site.goodreadsUserId && (
-            <a href={`https://www.goodreads.com/user/show/${site.goodreadsUserId}`}>More on Goodreads</a>
+            <a href={`https://www.goodreads.com/user/show/${site.goodreadsUserId}`} target="_blank" rel="noopener">More on Goodreads</a>
           )}
         </div>
         <ul class="books scroll-row">
           {books.map((b) => (
             <li>
-              <a href={b.link} class="lift">
+              <a href={b.link} class="lift" target="_blank" rel="noopener">
                 {b.cover && <img src={b.cover} alt="" width="120" height="180" loading="lazy" />}
                 <span class="book-title">{b.title}</span>
                 <span class="quiet small">{b.author}</span>
@@ -131,7 +131,7 @@ const proof = [
       <p class="eyebrow reveal">Next step</p>
       <h2 class="reveal">Have an account that needs an AI plan?</h2>
       <p class="lede">Thirty minutes is enough to see whether I can help.</p>
-      <a class="button" href={site.calendar}>Book a call</a>
+      <a class="button" href={site.calendar} target="_blank" rel="noopener">Book a call</a>
     </div>
   </section>
 </Base>

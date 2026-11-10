@@ -25,15 +25,15 @@ const lookingFor = [
     <p class="quiet">Updated {updated}</p>
 
     <h2>Building</h2>
-    <ul>{building.map((i) => <li>{typeof i === 'string' ? i : <a href={i.href}>{i.text}</a>}</li>)}</ul>
+    <ul>{building.map((i) => <li>{typeof i === 'string' ? i : <a href={i.href} target="_blank" rel="noopener">{i.text}</a>}</li>)}</ul>
 
     <h2>Learning</h2>
-    <ul>{learning.map((i) => <li>{typeof i === 'string' ? i : <a href={i.href}>{i.text}</a>}</li>)}</ul>
+    <ul>{learning.map((i) => <li>{typeof i === 'string' ? i : <a href={i.href} target="_blank" rel="noopener">{i.text}</a>}</li>)}</ul>
 
     <h2>Looking for</h2>
     <ul>{lookingFor.map((i) => <li>{i}</li>)}</ul>
 
-    <p><a class="button" href={site.calendar}>Book a call</a></p>
+    <p><a class="button" href={site.calendar} target="_blank" rel="noopener">Book a call</a></p>
   </section>
 </Base>
 

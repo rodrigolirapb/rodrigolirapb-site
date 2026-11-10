@@ -6,7 +6,7 @@ import { site } from '../site.config';
   <section class="section wrap contact">
     <h1>Let's talk about your accounts</h1>
     <p class="lede">The fastest way is a short call. Pick a time that suits you.</p>
-    <p><a class="button" href={site.calendar}>Book a call</a></p>
+    <p><a class="button" href={site.calendar} target="_blank" rel="noopener">Book a call</a></p>
 
     <dl class="channels">
       {site.emailUser && site.emailDomain && (
@@ -16,9 +16,9 @@ import { site } from '../site.config';
           </a>
         </dd></div>
       )}
-      {site.linkedin && <div><dt>LinkedIn</dt><dd><a href={site.linkedin}>Connect on LinkedIn</a></dd></div>}
+      {site.linkedin && <div><dt>LinkedIn</dt><dd><a href={site.linkedin} target="_blank" rel="noopener">Connect on LinkedIn</a></dd></div>}
       {site.cv && <div><dt>CV</dt><dd><a href={site.cv} download>Download my CV (PDF)</a></dd></div>}
-      <div><dt>Newsletter</dt><dd><a href={site.substack}>Subscribe to AI Management</a></dd></div>
+      <div><dt>Newsletter</dt><dd><a href={site.substack} target="_blank" rel="noopener">Subscribe to AI Management</a></dd></div>
       <div><dt>Based in</dt><dd>{site.location}</dd></div>
     </dl>
   </section>
