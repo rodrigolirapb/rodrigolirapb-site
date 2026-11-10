@@ -34,6 +34,12 @@ export const site = {
   // { title: 'Book title', author: 'Author name', link: 'https://www.goodreads.com/book/show/...', cover: '' }
   recentlyRead: [
     {
+      title: "Wednesday's Child: Stories",
+      author: 'Yiyun Li',
+      link: 'https://www.goodreads.com/book/show/65215744-wednesday-s-child',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1674441808i/65215744.jpg',
+    },
+    {
       title: 'Vida doçura',
       author: 'Natércia Pontes',
       link: 'https://www.goodreads.com/book/show/247110679-vida-do-ura',
