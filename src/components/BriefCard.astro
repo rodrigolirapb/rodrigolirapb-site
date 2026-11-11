@@ -8,7 +8,7 @@ const { story, full = false } = Astro.props;
 const { Content } = story;
 const links = story.linksKey ? site.storyLinks[story.linksKey] : undefined;
 ---
-<article class:list={["brief-card", "lift", "reveal", { "no-media": !story.image && !story.video }]} data-industry={story.industry} id={story.slug}>
+<article class:list={["brief-card", "lift", "reveal", { "no-media": !story.image && !story.video }]} data-tags={story.tags.join(' ')} id={story.slug}>
   {story.video ? (
     <div class="frame card-image">
       <video controls preload="metadata">

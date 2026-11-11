@@ -29,7 +29,7 @@ import { stories, industries } from '../lib/stories';
     btn.addEventListener('click', () => {
       const f = btn.dataset.filter;
       buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
-      cards.forEach((c) => (c.hidden = f !== 'all' && c.dataset.industry !== f));
+      cards.forEach((c) => (c.hidden = f !== 'all' && !c.dataset.tags?.split(' ').includes(f!)));
     }),
   );
 </script>

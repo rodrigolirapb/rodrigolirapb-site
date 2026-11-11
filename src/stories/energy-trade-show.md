@@ -1,6 +1,7 @@
 ---
 title: "One booth, three companies, one new solution launched"
 industry: Energy
+extraTags: [Advertising]
 client: "A joint industry trade show presence (3 companies)"
 order: 10
 image: /images/story-energy-trade-show.jpg
