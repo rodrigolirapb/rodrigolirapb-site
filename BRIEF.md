@@ -25,7 +25,8 @@ Alternatives:
 ## Proof points (only use these; never invent numbers)
 
 - Land-and-expand across three markets of a global utility from one first sale: two closed, with ongoing support contracts, the third in progress.
-- Lead generation +30% against a +10% target; new opportunities +62% against +50%.
+- Lead generation +30% against a +10% target.
+- Led structural and reporting-cadence changes (account-planning standards, pipeline cadence, forecasting rigor) that produced +62% business opportunities and +50% revenue growth over two years.
 - Ran a 20-person agency (Doisnovemeia); led a 10-person creative team (Plá).
 - Led marketing, operations and global sales at Spin Eng, 2019 to 2026: budget, agencies, campaigns, website, content, two trade shows a year, a 7-person sales and marketing team. Prospect meetings went from zero to three or four a week.
 - Co-founder and CMO of Nrolled (Toronto hospitality workforce platform); closed a 66K ACV deal with a corporation.
