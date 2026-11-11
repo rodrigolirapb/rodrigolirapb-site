@@ -2,9 +2,9 @@
 // Leave a value empty ('') and the site hides whatever depends on it.
 
 export const site = {
-  name: 'Rodrigo Borges',
+  name: 'Rod Borges',
   role: 'Account Director',
-  title: 'Rodrigo Borges, Account Director',
+  title: 'Rod Borges, Account Director',
   description:
     'Account director who brings AI into the client relationship and turns it into growth. Toronto.',
   location: 'Toronto',
