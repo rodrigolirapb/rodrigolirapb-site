@@ -37,7 +37,7 @@ Alternatives:
 - Connected Claude to Notion via MCP to turn a public Natural Resources Canada webpage into a live database: 233 rows, $709M CAD tracked across 10 programs.
 - Chronicles: 99 personal texts written on Medium 2015 to 2020, given a home on a dedicated site. Claude fetched and organized them via Notion, translated them into seven languages (English, French, Spanish, Arabic, Japanese, Hindi, Chinese), and built Kindle editions published on Amazon. Call the project "Chronicles" in site copy, not "Crônicas".
 - Languages: English and Portuguese (bilingual), Spanish (intermediate), French (learning).
-- First job 2005: marketing intern at a children's theatre in Brasília while studying Communication at the University of Brasília.
+- First job 2005: marketing intern at a children's theatre while studying Communication. Culture never left my work.
 - Led a CAD 4,000,000 hardware and software integration project across 3 companies: sensors in 26 substation power transformers, 4 software management modules delivered.
 - Structured new resale partners in India, the Philippines and Indonesia for mission-critical systems; slightly profitable in year one, grew until COVID-19.
 - Led a 3-company trade show presence in São Paulo to launch a FLISR (fault location, isolation and service restoration) solution.
@@ -47,6 +47,7 @@ Alternatives:
 - Managed financial tracking and audits for a bank-sponsored environmental NGO program in Brazil, across 5 projects.
 - Built a service map and supporting research for a space-industry marketplace startup considering invoice financing for its clients.
 - Ran the print and TV ad operation for a supermarket chain, modernizing the layout of both: weekly circulars, flyers and inserts, and the daily TV promo spots.
+- Directed Claude Code to build "Rod's Universe," a personal site that turns 20 years of career records into 57 searchable fragments across six categories (Craft, Systems, Scale, Wonder, Passage, Kinship), with a "Murmurs" mode that reveals them one at a time.
 
 ## Audience
 

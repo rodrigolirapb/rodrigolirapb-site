@@ -34,6 +34,12 @@ export const site = {
   // { title: 'Book title', author: 'Author name', link: 'https://www.goodreads.com/book/show/...', cover: '' }
   recentlyRead: [
     {
+      title: 'The AI Con: How to Fight Big Tech\'s Hype and Create the Future We Want',
+      author: 'Emily M. Bender, Alex Hanna',
+      link: 'https://www.goodreads.com/book/show/217432753-the-ai-con',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1737124238i/217432753.jpg',
+    },
+    {
       title: "Wednesday's Child: Stories",
       author: 'Yiyun Li',
       link: 'https://www.goodreads.com/book/show/65215744-wednesday-s-child',
@@ -89,9 +95,6 @@ export const site = {
     },
   ] as { title: string; author: string; link: string; cover?: string }[],
 
-  // Personal writing
-  cronicas: 'https://chronicles.rodrigolpborges.com',
-
   // Now page: supporting Movember this year
   movember: 'https://ca.movember.com/donate/details?memberId=15595714#amount',
 
@@ -107,6 +110,9 @@ export const site = {
     ],
     space: [
       { label: 'View the service map', href: 'https://rodrigolpborges.notion.site/spacey-invoice-financing?source=copy_link' },
+    ],
+    rodsUniverse: [
+      { label: 'Visit Rod\'s Universe', href: 'https://resume.rodrigolpborges.com/' },
     ],
   } as Record<string, { label: string; href: string }[]>,
 };
