@@ -23,7 +23,17 @@ const proof = [
         <p class="sheet-head quiet small"><span>Brief</span><span>{site.location}</span></p>
         <h1 id="hero-title">Account leadership for the AI era.</h1>
         <dl class="fields">
-          <div class="row"><dt>Who</dt><dd>Rod Borges, account director. Agency leader, client-side marketer and founder, across eight industries.</dd></div>
+          <div class="row">
+            <dt>Who</dt>
+            <dd>
+              Rod Borges, account director. Agency leader, client-side marketer and founder, across eight industries.
+              <span class="badges">
+                <img src="/images/badge-pmp.png" alt="PMP certified" width="28" height="28" loading="lazy" />
+                <img src="/images/badge-pmi-acp.png" alt="PMI-ACP certified" width="28" height="28" loading="lazy" />
+                <img src="/images/badge-rotman.png" alt="Rotman School of Management EMBA" width="28" height="28" loading="lazy" />
+              </span>
+            </dd>
+          </div>
           <div class="row"><dt>Why</dt><dd>Clients are asking their agencies what AI means for their business. Most answers stop at tools and skip the judgment that comes from running accounts across markets and seats.</dd></div>
           <div class="row"><dt>How</dt><dd>Business cases and roadmaps, built on markets and seats most account leads haven't worked, with AI doing the heavy lifting and people making the calls.</dd></div>
           <div class="row"><dt>What</dt><dd>Direct, caring feedback and steady deal health, not just a plan on paper.</dd></div>
@@ -159,6 +169,8 @@ const proof = [
   dt { color: var(--muted); font-size: var(--step--1); padding-top: 0.2em; }
   dd { margin: 0; max-width: 52ch; }
   .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .badges { display: flex; gap: 0.5rem; margin-top: 0.6rem; }
+  .badges img { width: 28px; height: 28px; border-radius: 6px; }
   .portrait { min-height: 420px; border-radius: 10px; box-shadow: 0 24px 48px -28px rgba(16, 33, 28, 0.35); }
 
   /* The one orchestrated moment: the brief fills in, row by row. */

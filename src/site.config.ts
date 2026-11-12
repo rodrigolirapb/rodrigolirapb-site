@@ -34,6 +34,12 @@ export const site = {
   // { title: 'Book title', author: 'Author name', link: 'https://www.goodreads.com/book/show/...', cover: '' }
   recentlyRead: [
     {
+      title: 'Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy',
+      author: "Cathy O'Neil",
+      link: 'https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1456091964i/28186015.jpg',
+    },
+    {
       title: 'The AI Con: How to Fight Big Tech\'s Hype and Create the Future We Want',
       author: 'Emily M. Bender, Alex Hanna',
       link: 'https://www.goodreads.com/book/show/217432753-the-ai-con',
