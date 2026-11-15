@@ -50,6 +50,7 @@ Alternatives:
 - Ran the print and TV ad operation for a supermarket chain, modernizing the layout of both: weekly circulars, flyers and inserts, and the daily TV promo spots.
 - Directed Claude Code to build "Rod's Universe," a personal site that turns 20 years of career records into 57 searchable fragments across six categories (Craft, Systems, Scale, Wonder, Passage, Kinship), with a "Murmurs" mode that reveals them one at a time.
 - Directed Claude to build a knowledge base and the GridQ Field Guide for GridQ, Spin Eng's ADMS solution for the energy market: a sales-intelligence portal built around the 4 Ps of marketing plus a Proof axis, with every fact tagged by evidence strength (confirmed, vendor claim, estimate, hypothesis or gap).
+- Directed Claude Code to build "Chewy Granola," an interactive material study of a chewy granola bar you can bend, snap into crumbs or switch into a wobbling jelly mode, its surface rebuilt from a photo of the real bar.
 
 ## Audience
 

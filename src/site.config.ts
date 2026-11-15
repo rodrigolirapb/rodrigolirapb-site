@@ -135,6 +135,9 @@ export const site = {
     rodsUniverse: [
       { label: 'Visit Rod\'s Universe', href: 'https://resume.rodrigolpborges.com/' },
     ],
+    chewyGranola: [
+      { label: 'Try Chewy Granola', href: 'https://chewy-granola.vercel.app/' },
+    ],
   } as Record<string, { label: string; href: string }[]>,
 };
 
