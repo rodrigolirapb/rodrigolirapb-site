@@ -34,6 +34,18 @@ export const site = {
   // { title: 'Book title', author: 'Author name', link: 'https://www.goodreads.com/book/show/...', cover: '' }
   recentlyRead: [
     {
+      title: 'The New Age of Sexism: How AI and Emerging Technologies Are Reinventing Misogyny',
+      author: 'Laura Bates',
+      link: 'https://www.goodreads.com/book/show/239841323-the-new-age-of-sexism',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1754649518i/239841323.jpg',
+    },
+    {
+      title: "How to Watch Soccer Like a Genius: What Architects, Stuntwomen, Paleoanthropologists, and Computer Scientists Reveal About the World's Game",
+      author: 'Nick Greene',
+      link: 'https://www.goodreads.com/book/show/239923232-how-to-watch-soccer-like-a-genius',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1754702525i/239923232.jpg',
+    },
+    {
       title: 'Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy',
       author: "Cathy O'Neil",
       link: 'https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction',
@@ -106,6 +118,9 @@ export const site = {
 
   // Now page: Spin Partner Platform demo video
   spinPartnerPlatformDemo: 'https://youtu.be/_yUSSG6K8F0?si=KtZ1qgNIcoattlaW',
+
+  // Now page: marketing platform demo video
+  marketingPlatformDemo: 'https://youtu.be/Dvs4FtU9thA?si=TldnO4tpsN4RR27P',
 
   // Extra outbound links for specific Work stories, keyed by the story's
   // `linksKey` frontmatter field. Rendered as buttons under the story fields.

@@ -220,7 +220,14 @@ const proof = [
     background: var(--sheet); border-radius: 8px; padding: 0.75rem;
   }
   .books img { border-radius: 4px; width: 120px; height: auto; }
-  .book-title { font-family: var(--serif); }
+  .book-title {
+    font-family: var(--serif);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
 
   .closing h2 { max-width: 20ch; margin-bottom: 0.5em; }
   .closing .lede { margin-bottom: 1.75rem; }
