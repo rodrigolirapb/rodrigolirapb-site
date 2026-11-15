@@ -11,7 +11,7 @@ const links = story.linksKey ? site.storyLinks[story.linksKey] : undefined;
 <article class:list={["brief-card", "lift", "reveal", { "no-media": !story.image && !story.video }]} data-tags={story.tags.join(' ')} id={story.slug}>
   {story.video ? (
     <div class="frame card-image">
-      <video controls preload="metadata">
+      <video controls preload="metadata" poster={story.poster}>
         <source src={story.video} type="video/mp4" />
       </video>
     </div>

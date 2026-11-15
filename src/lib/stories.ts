@@ -10,6 +10,7 @@ export type Story = {
   order: number;
   image?: string;
   video?: string;
+  poster?: string;
   linksKey?: string;
   extraTags?: string[];
   problem: string;
