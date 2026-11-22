@@ -5,7 +5,7 @@ Read `BRIEF.md` first: it holds the positioning, proof points, design system and
 ## Rules
 
 - No em dashes in any copy.
-- Never show client names in stories or anywhere else.
+- Never show client names in Work case studies (stories stay anonymized, e.g. "a supermarket chain"). Real brand/venue logos may appear in the Home "Brands I've worked with" carousel; that's the one deliberate exception.
 - Never invent metrics, clients, dates or quotes. Use only the proof points in `BRIEF.md`; ask Rodrigo for anything new.
 - Never write the full email address into page HTML. It is split in `src/site.config.ts` and assembled in the browser on the Contact page.
 - Keep all links and handles in `src/site.config.ts`.

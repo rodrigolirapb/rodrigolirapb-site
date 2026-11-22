@@ -71,7 +71,7 @@ Signals that answer "has he been out too long?": recent dates on posts and readi
 
 | Page | Job |
 | --- | --- |
-| Home | Hero brief, proof numbers, latest 3 AI Management posts (auto), selected work, recently read (manual), book a call |
+| Home | Hero brief, brands worked with (logo carousel), proof numbers, latest 3 AI Management posts (auto), selected work, recently read (manual), book a call |
 | Work | Industry stories as one-page agency briefs, filterable by industry |
 | About | Career as a scroll story; how he leads; languages and credentials |
 | Now | What he is building, learning and looking for this month |
@@ -110,7 +110,7 @@ Rules: one memorable moment per page beats effects everywhere; motion must never
 
 ## Non-negotiables
 
-- No client names.
+- No client names in Work case studies. The Home logo carousel is the one deliberate exception: real brand/venue logos shown for credibility, never tied to a specific story.
 - Never write the full email address into the page HTML (see Contact page).
 - Never invent metrics, clients or dates.
 - No em dashes.
