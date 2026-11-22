@@ -51,6 +51,10 @@ Alternatives:
 - Directed Claude Code to build "Rod's Universe," a personal site that turns 20 years of career records into 57 searchable fragments across six categories (Craft, Systems, Scale, Wonder, Passage, Kinship), with a "Murmurs" mode that reveals them one at a time.
 - Directed Claude to build a knowledge base and the GridQ Field Guide for GridQ, Spin Eng's ADMS solution for the energy market: a sales-intelligence portal built around the 4 Ps of marketing plus a Proof axis, with every fact tagged by evidence strength (confirmed, vendor claim, estimate, hypothesis or gap).
 - Directed Claude Code to build "Chewy Granola," an interactive material study of a chewy granola bar you can bend, snap into crumbs or switch into a wobbling jelly mode, its surface rebuilt from a photo of the real bar.
+- Negotiated TV media packages and tested content for a car dealership, keeping it consistently top of mind against competition; sales grew steadily as a result.
+- Produced about 15 TV spots a year for Brasília's public real estate company, improving its public image and helping facilitate private land acquisition.
+- Produced TV spots to build brand value and enrolment for a university and a private school, both in Brasília, keeping both as market leaders.
+- Led direct mail marketing initiatives for a supermarket chain, keeping it a market leader.
 
 ## Audience
 

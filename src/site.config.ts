@@ -32,7 +32,32 @@ export const site = {
   // `cover` is optional (leave empty to hide the image). Shows as a lateral
   // scroll carousel on Home. Example shape:
   // { title: 'Book title', author: 'Author name', link: 'https://www.goodreads.com/book/show/...', cover: '' }
+  // Capped at 15: when adding a new book past that, drop the last (oldest) entry.
   recentlyRead: [
+    {
+      title: "More Everything Forever: AI Overlords, Space Empires, and Silicon Valley's Crusade to Control the Fate of Humanity",
+      author: 'Adam Becker',
+      link: 'https://www.goodreads.com/book/show/212987932-more-everything-forever',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1719003402i/212987932.jpg',
+    },
+    {
+      title: 'Supremacy: AI, ChatGPT, and the Race That Will Change the World',
+      author: 'Parmy Olson',
+      link: 'https://www.goodreads.com/book/show/199809440-supremacy',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1711570682i/199809440.jpg',
+    },
+    {
+      title: 'Cinder (The Lunar Chronicles, #1)',
+      author: 'Marissa Meyer',
+      link: 'https://www.goodreads.com/book/show/36381037-cinder',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1507557775i/36381037.jpg',
+    },
+    {
+      title: 'In the Distance',
+      author: 'Hernán Diaz',
+      link: 'https://www.goodreads.com/book/show/34381330-in-the-distance',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1489155501i/34381330.jpg',
+    },
     {
       title: 'The New Age of Sexism: How AI and Emerging Technologies Are Reinventing Misogyny',
       author: 'Laura Bates',
@@ -99,18 +124,6 @@ export const site = {
       link: 'https://www.goodreads.com/book/show/53487237-a-swim-in-a-pond-in-the-rain',
       cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1627489209i/53487237.jpg',
     },
-    {
-      title: 'Small Things Like These',
-      author: 'Claire Keegan',
-      link: 'https://www.goodreads.com/book/show/58662236-small-things-like-these',
-      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1734631773i/58662236.jpg',
-    },
-    {
-      title: 'Sing to It: New Stories',
-      author: 'Amy Hempel',
-      link: 'https://www.goodreads.com/book/show/40639315',
-      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1551618476i/40639315.jpg',
-    },
   ] as { title: string; author: string; link: string; cover?: string }[],
 
   // Now page: supporting Movember this year
@@ -137,6 +150,16 @@ export const site = {
     ],
     chewyGranola: [
       { label: 'Try Chewy Granola', href: 'https://chewy-granola.vercel.app/' },
+    ],
+    terracap: [
+      { label: 'Watch the TV spot', href: 'https://cargocollective.com/rodrigoborges/Terracap' },
+    ],
+    uniceubSigma: [
+      { label: 'Watch the university\'s spot', href: 'https://cargocollective.com/rodrigoborges/UniCEUB' },
+      { label: 'Watch the school\'s spot', href: 'https://cargocollective.com/rodrigoborges/Centro-Educacional-Sigma' },
+    ],
+    carrefour: [
+      { label: 'View the direct mail work', href: 'https://cargocollective.com/rodrigoborges/Malas-diretas' },
     ],
   } as Record<string, { label: string; href: string }[]>,
 };
