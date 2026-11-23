@@ -30,7 +30,7 @@ Alternatives:
 - Ran a 20-person agency (Doisnovemeia); led a 10-person creative team (Plá).
 - Led marketing, operations and global sales at Spin Eng, 2019 to 2026: budget, agencies, campaigns, website, content, two trade shows a year, a 7-person sales and marketing team. Prospect meetings went from zero to three or four a week.
 - Co-founder and CMO of Nrolled (Toronto hospitality workforce platform); closed a 66K ACV deal with a corporation.
-- Eight industries: retail, automotive, government, non-profit, financial services, tech, energy, hospitality.
+- 11 industries: advertising, automotive, CPG, education, energy, government, hospitality, non-profit, retail, space, tech.
 - Leads with frequent, direct, caring feedback; uses MEDDICC for deal health.
 - Certifications: Rotman School of Management EMBA, PMP-PMI, ACP-PMI, Professional Scrum Product Owner™ I.
 - Spin Partner Platform: built in 4 weeks, directing Claude Code and Lovable; about 28,000 lines of code, 80 automated tests. A two-sided system (partner portal + control center) for Spin's partner sales.
