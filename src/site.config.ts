@@ -35,6 +35,24 @@ export const site = {
   // Capped at 15: when adding a new book past that, drop the last (oldest) entry.
   recentlyRead: [
     {
+      title: 'The Land and Its People',
+      author: 'David Sedaris',
+      link: 'https://www.goodreads.com/book/show/244934769-the-land-and-its-people',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1765815225i/244934769.jpg',
+    },
+    {
+      title: 'Cold Comfort Farm',
+      author: 'Stella Gibbons',
+      link: 'https://www.goodreads.com/book/show/92780.Cold_Comfort_Farm',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1783282565i/92780.jpg',
+    },
+    {
+      title: 'End Times Fascism: And the Fight for the Living World',
+      author: 'Naomi Klein, Astra Taylor',
+      link: 'https://www.goodreads.com/book/show/244766376-end-times-fascism',
+      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1789840801i/244766376.jpg',
+    },
+    {
       title: "More Everything Forever: AI Overlords, Space Empires, and Silicon Valley's Crusade to Control the Fate of Humanity",
       author: 'Adam Becker',
       link: 'https://www.goodreads.com/book/show/212987932-more-everything-forever',
@@ -105,24 +123,6 @@ export const site = {
       author: 'Belle Burden',
       link: 'https://www.goodreads.com/book/show/231108670-strangers',
       cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1749266330i/231108670.jpg',
-    },
-    {
-      title: 'Erasure',
-      author: 'Percival Everett',
-      link: 'https://www.goodreads.com/book/show/355862.Erasure',
-      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1708274015i/355862.jpg',
-    },
-    {
-      title: 'The Friend',
-      author: 'Sigrid Nunez',
-      link: 'https://www.goodreads.com/book/show/40164365-the-friend',
-      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1544364669i/40164365.jpg',
-    },
-    {
-      title: 'A Swim in a Pond in the Rain',
-      author: 'George Saunders',
-      link: 'https://www.goodreads.com/book/show/53487237-a-swim-in-a-pond-in-the-rain',
-      cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1627489209i/53487237.jpg',
     },
   ] as { title: string; author: string; link: string; cover?: string }[],
 
